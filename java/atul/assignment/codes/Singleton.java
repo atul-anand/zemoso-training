@@ -1,4 +1,4 @@
-//: atul/assignment/singleton/Singleton.java
+//: atul/assignment/codes/Singleton.java
 /** Verify Java's default initialization.
 * @author Atul Anand
 */
@@ -15,4 +15,3 @@ public class Singleton {
 		System.out.println(s);
 	}
 }
-

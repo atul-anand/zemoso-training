@@ -1,4 +1,4 @@
-//: atul/assignment/data/Data.java
+//: atul/assignment/Data.java
 /** Verify Java's default initialization.
 * @author Atul Anand
 */
@@ -19,4 +19,3 @@ public class Data {
 		//!System.out.println(j);
 	}
 }
-
