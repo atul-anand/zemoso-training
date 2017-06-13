@@ -1,8 +1,12 @@
 //: polymorphism/cycle/Handler.java
 
 class Cycle {
+	protected int wheel;
 	public void ride(){
-		System.out.println(this);
+		System.out.println(this + " " + wheels());
+	}
+	public int wheels(){
+		return wheel;
 	}
 	public String toString(){
 		return "Cycle";
@@ -10,18 +14,27 @@ class Cycle {
 }
 
 class Unicycle extends Cycle {
+	Unicycle() {
+		wheel = 1;
+	}
 	public String toString(){
 		return "Unicyle";
 	}
 }
 
 class Bicycle extends Cycle {
+        Bicycle() {
+                wheel = 2;
+        }
 	public String toString(){
 		return "Bicycle";
 	}
 }
 
 class Tricycle extends Cycle {
+        Tricycle() {
+                wheel = 3;
+        }
 	public String toString(){
 		return "Tricycle";
 	}
