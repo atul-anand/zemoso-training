@@ -1,4 +1,4 @@
-//: atul/assignment/Data.java
+//: atul/assignment/codes/Data.java
 /** Verify Java's default initialization.
 * @author Atul Anand
 */
