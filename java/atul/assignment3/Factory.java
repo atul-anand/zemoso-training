@@ -65,4 +65,8 @@ public class Factory {
 		createCycle(new BicycleFactory());
 		createCycle(new TricycleFactory());
 	}
-}
+}/* Output:
+Unicycle.balance()
+Bicycle.balance()
+Tricycle.balance()
+*///:~

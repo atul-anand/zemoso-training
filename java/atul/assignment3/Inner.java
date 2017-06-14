@@ -41,4 +41,14 @@ public class Inner {
 		OuterS outs = new OuterS();
 		OuterS.InnerS inns = outs.getInnerS(15);
 	}
-}
+}/* Output:
+OuterF()
+InnerF()
+12
+OuterF()
+OuterS()
+InnerF()
+15
+InnerS()
+15
+*///:~
