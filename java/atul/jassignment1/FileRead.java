@@ -28,7 +28,7 @@ public class FileRead {
 		while(true){
 			String expression = scanner.nextLine();
 			System.out.println(expression);
-			if(expression.equals("11"))
+			if(expression.equals("exit"))
 				break;
 			File[] files = new File(".").listFiles();
 			for(File f:files)
