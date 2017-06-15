@@ -1,6 +1,6 @@
 //: atul/jassignment1/FileRead.java
 
-package atul.jassignment1.fileread;
+package fileread;
 
 import java.io.*;
 import java.util.*;
