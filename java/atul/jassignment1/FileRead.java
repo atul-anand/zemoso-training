@@ -25,8 +25,11 @@ public class FileRead {
 	}
 	public static void main(String[] args){
 		Scanner scanner = new Scanner(System.in);
-		while(scanner.hasNext()){
+		while(true){
 			String expression = scanner.nextLine();
+			System.out.println(expression);
+			if(expression.equals("11"))
+				break;
 			File[] files = new File(".").listFiles();
 			for(File f:files)
 				listFilesDirectory(f,expression);
