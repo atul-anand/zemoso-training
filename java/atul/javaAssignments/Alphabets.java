@@ -1,6 +1,6 @@
 //: atul/javaAssignments/Alphabets.java
 
-package alphabets;
+//package alphabets;
 import java.lang.*;
 
 public class Alphabets {

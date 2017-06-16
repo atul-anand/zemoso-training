@@ -25,20 +25,18 @@ class MyExceptionC extends Exception {
 }
 
 public class Excep {
-	public static void A() throws MyExceptionA {
-		throw new MyExceptionA("Exception in A");
-	}
-	public static void B() throws MyExceptionB {
-		throw new MyExceptionB("Exception in B");
-	}
-	public static void C() throws MyExceptionC {
-		throw new MyExceptionC("Exception in C");
+	public static void except(char a) throws MyExceptionA, MyExceptionB, MyExceptionC {
+		switch(a){
+			case 'A':throw new MyExceptionA("Exception in A");
+			case 'B':throw new MyExceptionB("Exception in B");
+			case 'C':throw new MyExceptionC("Exception in C");
+		}
 	}
 	public static void main(String[] args) {
 		try {
-			A();
-			B();
-			C();
+			except('A');
+			except('B');
+			except('C');
 		} catch (MyExceptionA | MyExceptionB | MyExceptionC e) {
 			e.printStackTrace(System.out);
 		} finally {
@@ -47,7 +45,7 @@ public class Excep {
 	}
 }/* Output:
 atul.assignment4.excep.MyExceptionA: MyExceptionA Exception in A
-	at atul.assignment4.excep.Excep.A(Excep.java:29)
-	at atul.assignment4.excep.Excep.main(Excep.java:39)
+	at atul.assignment4.excep.Excep.A(Excep.java:30)
+	at atul.assignment4.excep.Excep.main(Excep.java:37)
 Cleaning Up!
 *///:~
