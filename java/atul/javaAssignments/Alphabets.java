@@ -1,6 +1,6 @@
 //: atul/javaAssignments/Alphabets.java
 
-//package alphabets;
+package alphabets;
 import java.lang.*;
 
 public class Alphabets {
@@ -18,7 +18,12 @@ public class Alphabets {
 		return true;
 	}
 	public static void main(String[] args){
-		String s = "The quick brown fox jumps over the lazy dog.";
-		System.out.println(containAllAlphabets(s));
+		String s1 = "The quick brown fox jumps over the lazy dog.";
+		String s2 = "Laptops are getting ancient";
+		System.out.println(containAllAlphabets(s1));
+		System.out.println(containAllAlphabets(s2));
 	}
-}
+}/* Output:
+true
+false
+*///:~
