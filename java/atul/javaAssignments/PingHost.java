@@ -1,6 +1,5 @@
 //: atul/javaAssignments/PingHost.java
 
-package pinghost;
 import java.net.*;
 import java.util.*;
 public class PingHost {

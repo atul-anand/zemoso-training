@@ -25,8 +25,8 @@ public class FileRead {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		while(true){
+			System.out.print("Enter Regular Expression: ");
 			String expression = scanner.nextLine();
-			System.out.println(expression);
 			if(expression.equals("exit"))
 				break;
 			listFilesDirectory(new File("."),expression);
