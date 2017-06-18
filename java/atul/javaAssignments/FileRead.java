@@ -1,4 +1,4 @@
-//: atul/jassignment1/FileRead.java
+//: atul/javaAssignments/FileRead.java
 
 import java.io.*;
 import java.util.*;
