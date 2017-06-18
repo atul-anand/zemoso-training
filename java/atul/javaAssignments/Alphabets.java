@@ -1,29 +1,27 @@
 //: atul/javaAssignments/Alphabets.java
 
-package alphabets;
 import java.lang.*;
+import java.util.*;
 
 public class Alphabets {
 	static boolean containAllAlphabets(String s){
 		boolean[] arr = new boolean[26];
-		for(char ch : s.toCharArray()){
-			if(Character.isLowerCase(ch))
+		s = s.toLowerCase();
+		for(char ch : s.toCharArray())
+			if(Character.isAlphabetic(ch))
 				arr[(int)ch - (int)'a'] = true;
-			else if(Character.isUpperCase(ch))
-				arr[(int)ch - (int)'A'] = true;
-		}
 		for(boolean b : arr)
 			if(b==false)
 				return false;
 		return true;
 	}
 	public static void main(String[] args){
-		String s1 = "The quick brown fox jumps over the lazy dog.";
-		String s2 = "Laptops are getting ancient";
-		System.out.println(containAllAlphabets(s1));
-		System.out.println(containAllAlphabets(s2));
+		Scanner scanner = new Scanner(System.in);
+                while(true){
+                        String expression = scanner.nextLine();
+                        if(expression.equals("exit"))
+                                break;
+                       	System.out.println(containAllAlphabets(expression));
+                }
 	}
-}/* Output:
-true
-false
-*///:~
+}

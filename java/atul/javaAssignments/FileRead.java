@@ -1,7 +1,5 @@
 //: atul/jassignment1/FileRead.java
 
-package fileread;
-
 import java.io.*;
 import java.util.*;
 import java.util.regex.*;
@@ -21,7 +19,7 @@ public class FileRead {
 				matchRegExp(file.getCanonicalPath().toString(), expression);
 			}
 		} catch (Exception e) {
-			System.out.println("exception at "+dir);
+			System.out.println("Exception at "+dir);
 		}
 	}
 	public static void main(String[] args) {
@@ -31,9 +29,7 @@ public class FileRead {
 			System.out.println(expression);
 			if(expression.equals("exit"))
 				break;
-			File[] files = new File(".").listFiles();
-			for(File f:files)
-				listFilesDirectory(f,expression);
+			listFilesDirectory(new File("."),expression);
 		}
 	}
 }
