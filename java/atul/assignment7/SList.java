@@ -31,8 +31,8 @@ class SListIterator<T> {
 		current = current.next;
 		return current;
 	}
-	public void insert(T t) {
-		current.next = new Link<T>(t, current.next);
+	public void insert(T item) {
+		current.next = new Link<T>(item, current.next);
 		current = current.next;
 	}
 	public void remove() {
