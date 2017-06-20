@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 import java.nio.charset.*;
 public class TextMap{
-	static Map<Character,Integer> textMap = new HashMap<Character,Integer>();
+	static Map<Character,Integer> textMap = new TreeMap<Character,Integer>();
 	static Comparator<Map.Entry<Character,Integer>> customComparator = new Comparator<Map.Entry<Character,Integer>>() {
 	        @Override public int compare(Map.Entry<Character,Integer> s1, Map.Entry<Character,Integer> s2) {
 			return s1.getKey().toString().compareTo(s2.getKey().toString());
@@ -50,12 +50,12 @@ public class TextMap{
 		Charset encoding  = Charset.defaultCharset();
 		File file = new File(filename);
 		handleFile(file,encoding);
-		for (Map.Entry<Character,Integer> name: textMap.entrySet())
+/*		for (Map.Entry<Character,Integer> name: textMap.entrySet())
 			System.out.println(name.getKey() + " " + name.getValue());
 //		Collection.sort(textMap,customComparator);
 		for (Map.Entry<Character,Integer> name: textMap.entrySet())
                         System.out.println(name.getKey() + " " + name.getValue());
-		System.out.print("Enter output filename: ");
+*/		System.out.print("Enter output filename: ");
 		String outputFile = scanner.nextLine();
 		write(outputFile);
 	}
