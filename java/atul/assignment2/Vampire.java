@@ -87,6 +87,7 @@ public class Vampire {
 		System.out.println("Total numbers:" + vamp.size() + " Time Taken:" + (System.currentTimeMillis()-start)+"ms");
 	}
 }/* Output:
+Enter no of digits till all the vampire numbers are to be calculated:7
 1260:(21,60) 
 1395:(15,93) 
 1435:(35,41) 
