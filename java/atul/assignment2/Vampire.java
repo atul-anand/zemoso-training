@@ -242,6 +242,6 @@ public class Vampire {
 829696:(896,926) 
 841995:(891,945) 
 939658:(953,986) 
-155
+Total numbers:155 Time Taken:3014ms
 *///:~
 
