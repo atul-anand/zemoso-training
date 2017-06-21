@@ -79,10 +79,12 @@ public class Vampire {
 					checkVampire(j,i);
 	}
 	public static void main(String[] args){
-		// Vampire numbers till 6 digits.
-		listVamps(6);
+		Long start = System.currentTimeMillis();
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter no of digits till all the vampire numbers are to be calculated:");
+		listVamps(scanner.nextInt());
 		printSetVamps(vamp);
-		System.out.println(vamp.size());
+		System.out.println("Total numbers:" + vamp.size() + " Time Taken:" + (System.currentTimeMillis()-start)+"ms");
 	}
 }/* Output:
 1260:(21,60) 
