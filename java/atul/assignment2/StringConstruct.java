@@ -1,7 +1,6 @@
 //: atul/assignment2/StringConstruct.java
 
-package atul.assignment2.stringconstruct;
-
+package stringconstruct;
 public class StringConstruct {
 	StringConstruct(String s){
 		System.out.println(s);
