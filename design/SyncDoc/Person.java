@@ -62,9 +62,9 @@ public class Person {
 	public void setDOB(LocalDate dob) { this.dob = dob; }
 	public void setDOB(String dob) {
 		try {
-			int day = Integer.parseInt(dob.substring(0,2));
-			int month = Integer.parseInt(dob.substring(3,5));
-			int year = Integer.parseInt(dob.substring(6,10));
+			int day = Integer.parseInt(dob.split("/")[0]);
+			int month = Integer.parseInt(dob.split("/")[1]);
+			int year = Integer.parseInt(dob.split("/")[2]);
 			this.dob.of(year,month,day);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

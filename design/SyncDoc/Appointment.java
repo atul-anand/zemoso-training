@@ -1,22 +1,24 @@
 import java.util.*;
-public class Appointment {
+public class Appointment extends Timing{
 	private Patient patient;
 	private Doctor doctor;
-	private Calendar start;
-	private Calendar end;
-	public Appointment(Patient patient, Doctor doctor, Calendar start){
+	public Appointment(Patient patient, Doctor doctor, String start, String end){
+		super(start,end);
+		
+	}
+	public Appointment(Patient patient, Doctor doctor, Calendar start, Calendar end){
+		super(start,end);
 		this.patient = patient;
 		this.doctor = doctor;
-		this.start = start;
-		start.add(Calendar.HOUR,1);
-		this.end = start;
 	}
-	public Calendar getStartTime() { return this.start; }
-	public Calendar getEndTime() { return this.end; }
+	public Appointment(Patient patient, Doctor doctor, Timing timing){
+		super(timing);
+		this.patient = patient;
+		this.doctor = doctor;
+	}
 	public Patient getPatient() { return this.patient; }
 	public Doctor getDoctor() { return this.doctor; }
-	public void setStartTime(Calendar start) { this.start = start; }
 	public String toString() { 
-		return patient.toString()+" with " + doctor.toString() + " from "+start.toString()+" to "+end.toString(); 
+		return patient.toString()+" with " + doctor.toString() + " from "+getStartTime().toString()+" to "+getEndTime().toString(); 
 	}
 }

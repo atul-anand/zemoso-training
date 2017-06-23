@@ -1,14 +1,19 @@
+import java.util.*;
 public class Patient extends Person{
 	private static int counter = 0;
 	private final int id = counter++;
 	private Person person;
-	private String condition;
-	public Patient(Person person, String condition){
+	private Condition condition;
+	private Set<Timing> timings;
+	public Patient(Person person, Condition condition){
 		super(person);
 		this.condition = condition;
+		timings = new TreeSet<Timing>(new TimingComparator());
 	}
 	public int getID(){ return id; }
-	public String getCondition() { return condition; }
-	public void setCondition(String condition) { this.condition = condition; }
+	public Condition getCondition() { return condition; }
+	public void setCondition(Condition condition) { this.condition = condition; }
+	public void addTiming(Timing timing) { timings.add(timing); }
+	public Set<Timing> getTimings() { return timings; }
 	public String toString() { return "id: " + getID() + " " + super.toString() + ",Condition:"+ getCondition(); }
 }

@@ -4,6 +4,7 @@ public class AppointmentPortal {
 	private List<Patient> patients;
 	private List<Doctor> doctors;
 	AppointmentPortal(){
+		persons = new ArrayList<Person>();
 		patients = new ArrayList<Patient>();
 		doctors = new ArrayList<Doctor>();
 		populatePersons();
@@ -44,11 +45,21 @@ public class AppointmentPortal {
 	}
 	public void populatePersons(){
 		addPerson(new Person("ABC","XYZ",'M',"14/03/1987","9876543210"));
-
 	}
 	public void populateDoctors(){
-		addDoctor(new Doctor(persons.get(0),Speciality.Physician));
-
+		addDoctor(new Doctor(persons.get(0),Speciality.Physician,Authority.Junior));
+	}
+	public void printPersons(){
+		for(Person per : persons)
+			System.out.println(per);
+	}
+	public void printPatients(){
+		for(Patient pat : patients)
+			System.out.println(pat);
+	}
+	public void printDoctors(){
+		for(Doctor doc : doctors)
+			System.out.println(doc);
 	}
 	private boolean personPresent(Collection<?> list, Object entry){
 		for(Object obj:list)
@@ -67,31 +78,36 @@ public class AppointmentPortal {
 		}
 		return spec.get(i);
 	}
-	public List<Doctor> getDoctorsWithSpeciality(Speciality speciality){
-		List<Doctor> specialisedDoctors = new ArrayList<Doctor>();
+	public Set<Doctor> getDoctors(Speciality speciality, Authority authority){
+		Set<Doctor> specialisedDoctors = new TreeSet<Doctor>(new DoctorComparator());
 		for(Doctor doc:doctors){
-			if(doc.getSpeciality()==speciality)
+			if(doc.getSpeciality()==speciality&&doc.getAuthority()==authority)
 				specialisedDoctors.add(doc);
 		}
 		return specialisedDoctors;
 	}
-	private Appointment earliestNewAppointment(List<Doctor> specialisedDoctors, Patient patient){
-		Set<Appointment> appointments = new TreeSet<Appointment>(new AppointmentComparator());
-		for(Doctor doc : specialisedDoctors)
-			for(Appointment app : doc.getAppointments())
-				appointments.add(app);
-		
+	public Appointment earliestNewAppointment(Set<Doctor> specializedDoctors, Patient patient){
+		Set<Appointment> totalAppointments = new TreeSet<Appointment>(new AppointmentComparator());
+		for(Doctor doc : specializedDoctors){
+			Set<Timing> docTimes = doc.getTimings();
+			Set<Timing> patTimes = patient.getTimings();
+			for(Timing docTime : docTimes){
+				for(Timing patTime : patTimes){
+					Calendar docStart = docTime.getStartTime();
+					Calendar docEnd = docTime.getEndTime();
+					Calendar patStart = patTime.getStartTime();
+					Calendar patEnd = patTime.getEndTime();
+					if(TimeDiff.getMinutes(patStart,docStart)<=0&&TimeDiff.getMinutes(docEnd,patEnd)<=0)
+						totalAppointments.add(new Appointment(patient,doc,docTime));
+				}
+			}
+		}
 
-
-
-		Calendar start = Calendar.getInstance();
-		Calendar end = Calendar.getInstance();
-		Appointment app = new Appointment(patient,specialisedDoctors.get(0),start);
-		return app;
+		return totalAppointments.iterator().next();
 	}
-	public void makeAppointment(Patient patient){
-		Speciality spec = getSpecialityFromCondition(Condition.valueOf(patient.getCondition()));
-		List<Doctor> specialisedDoctors = getDoctorsWithSpeciality(spec);
+	public void makeAppointment(Patient patient, Authority authority){
+		Speciality spec = getSpecialityFromCondition((patient.getCondition()));
+		Set<Doctor> specialisedDoctors = getDoctors(spec,authority);
 		if(specialisedDoctors.size()==0){
 			System.out.println("No doctors available.");
 			return;
@@ -104,5 +120,8 @@ public class AppointmentPortal {
 				break;
 			}
 		System.out.println("Appointment for " + appointment + " approved.");
+	}
+	public String toString(){
+		return "Welcome to ABC Hospital Appointment Booking Portal.";
 	}
 }
