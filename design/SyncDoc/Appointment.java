@@ -4,7 +4,8 @@ public class Appointment extends Timing{
 	private Doctor doctor;
 	public Appointment(Patient patient, Doctor doctor, String start, String end){
 		super(start,end);
-		
+		this.patient = patient;
+		this.doctor = doctor;
 	}
 	public Appointment(Patient patient, Doctor doctor, Calendar start, Calendar end){
 		super(start,end);

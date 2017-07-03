@@ -4,25 +4,23 @@ public class TimingObject {
 	TimingObject(String dayTime){
 		cal = Calendar.getInstance();
 		cal.set(Calendar.YEAR,2017);
-		cal.set(Calendar.MONTH,1);
-		cal.set(Calendar.DAY_OF_YEAR,1);
 		//Wed,12:00 PM
 		//Week starts from Sunday.
 		String day = dayTime.split(",")[0];
 		switch(day.toUpperCase().substring(0,3)){
-			case "SUN" : cal.set(Calendar.DAY_OF_WEEK, 1);
+			case "SUN" : cal.set(Calendar.DAY_OF_YEAR, 1);
 						break;
-			case "MON" : cal.set(Calendar.DAY_OF_WEEK, 2);
+			case "MON" : cal.set(Calendar.DAY_OF_YEAR, 2);
 						break;
-			case "TUE" : cal.set(Calendar.DAY_OF_WEEK, 3);
+			case "TUE" : cal.set(Calendar.DAY_OF_YEAR, 3);
 						break;
-			case "WED" : cal.set(Calendar.DAY_OF_WEEK, 4);
+			case "WED" : cal.set(Calendar.DAY_OF_YEAR, 4);
 						break;
-			case "THU" : cal.set(Calendar.DAY_OF_WEEK, 5);
+			case "THU" : cal.set(Calendar.DAY_OF_YEAR, 5);
 						break;
-			case "FRI" : cal.set(Calendar.DAY_OF_WEEK, 6);
+			case "FRI" : cal.set(Calendar.DAY_OF_YEAR, 6);
 						break;
-			case "SAT" : cal.set(Calendar.DAY_OF_WEEK, 7);
+			case "SAT" : cal.set(Calendar.DAY_OF_YEAR, 7);
 						break;
 		}		
 		String time = dayTime.split(",")[1];

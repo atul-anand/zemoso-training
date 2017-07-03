@@ -15,22 +15,6 @@ public class Person {
 		dob = LocalDate.now();
 		contact = "9876543210";
 	}
-	public Person(Boolean bool){
-		this();
-		if(bool){
-			Scanner scanner = new Scanner(System.in);
-			System.out.print("Enter First Name:");
-			setFirstName(scanner.nextLine());
-			System.out.print("Enter Last Name:");
-			setLastName(scanner.nextLine());
-			System.out.print("Enter Gender(M/F):");
-			setGender(scanner.nextLine().charAt(0));
-			System.out.print("Enter DOB(DD/MM/YYYY):");
-			setDOB(scanner.nextLine());
-			System.out.print("Enter Contact Details:");
-			setContact(scanner.nextLine());
-		}	
-	}
 	public Person(String firstName, String lastName, char gender, String dob, String contact){
 		setFirstName(firstName);
 		setLastName(lastName);
