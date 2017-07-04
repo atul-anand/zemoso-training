@@ -26,4 +26,7 @@ public class Wallets extends PaymentMode {
 		addAmount(amt);
 		return new Transaction(this,amt);
 	}
+	public String toString(){
+		return wallet + " " + mobileNumber;
+	}
 }

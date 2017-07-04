@@ -14,7 +14,7 @@ public class Doctor extends Person{
 		this.timings = new TreeSet<Timing>(new TimingComparator());
 	}
 	// Making 15 mins time slots for next week.
-	public void addAvailableAppointments(Timing timing){
+	public void addAvailableAppoints(Timing timing){
 		Calendar start = (Calendar)timing.getStartTime().clone();
 		Calendar end = (Calendar)timing.getEndTime().clone();
 		while(start.compareTo(end)<0){
@@ -30,7 +30,7 @@ public class Doctor extends Person{
 		Calendar end = (Calendar)timing.getEndTime().clone();
 		start.add(Calendar.WEEK_OF_YEAR,week);
 		end.add(Calendar.WEEK_OF_YEAR,week);
-		addAvailableAppointments(new Timing(start,end));
+		addAvailableAppoints(new Timing(start,end));
 	}
 	// Add next week's timing.
 	public void extendTiming(int week) {
@@ -61,7 +61,7 @@ public class Doctor extends Person{
 				System.out.println(timing);
 	}
 	// Book appointment.
-	public Appointment makeAppointment(Patient patient){
+	public Appointment book(Patient patient){
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("\nAvailable Appointments (Sorted by earliest)");
 		Appointment newAppointment = null;

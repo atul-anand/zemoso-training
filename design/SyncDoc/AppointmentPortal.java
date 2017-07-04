@@ -4,7 +4,7 @@ public class AppointmentPortal extends Populate{
 	public AppointmentPortal(){
 		appoints = new TreeSet<Appointment>(new TimingComparator());
 	}
-	public Speciality getSpecialityFromCondition(Condition condition){
+	public Speciality getSpecFromCond(Condition condition){
 		List<Condition> cond = new ArrayList<Condition>(Arrays.asList(Condition.values()));
 		List<Speciality> spec = new ArrayList<Speciality>(Arrays.asList(Speciality.values()));
 		int i=0;
@@ -40,7 +40,7 @@ public class AppointmentPortal extends Populate{
 		return respons;
 	}
 	public void makeAppointment(Patient patient, Authority authority){
-		Speciality spec = getSpecialityFromCondition((patient.getCondition()));
+		Speciality spec = getSpecFromCond((patient.getCondition()));
 		Set<Doctor> specialisedDoctors = getDoctors(spec,authority);
 		if(specialisedDoctors.size()==0){
 			System.out.println("No doctors available.");
@@ -65,7 +65,7 @@ public class AppointmentPortal extends Populate{
 		Appointment newAppointment = null;
 		for(Doctor doc : doctors)
 			if(doc.getID()==docID){
-				newAppointment = doc.makeAppointment(patient);
+				newAppointment = doc.book(patient);
 				break;
 			}
 		if(newAppointment==null){

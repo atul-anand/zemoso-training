@@ -1,6 +1,5 @@
 import java.util.*;
 public class Patient extends Person{
-	private Person person;
 	private Condition condition;
 	public Patient(Person person, Condition condition){
 		super(person);

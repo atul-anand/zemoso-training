@@ -2,12 +2,10 @@ import java.util.*;
 public class User{
 	private String username;
 	private String password;
-	private Double balance;
 	private List<Transaction> transactions;
 	public User(String username){
 		this.username = username;
 		password = "12345678";
-		balance = 0.0;
 		transactions = new ArrayList<Transaction>();
 	}
 	public User(String username, String password){
@@ -22,9 +20,6 @@ public class User{
 	}
 	public String getPassword(){
 		return password;
-	}
-	public Double getBalance(){
-		return balance;
 	}
 	public void addTransaction(Transaction transaction){
 		transactions.add(transaction);
@@ -42,6 +37,6 @@ public class User{
 			System.out.println(transaction);
 	}
 	public String toString(){
-		return getUsername() + " " + getBalance();
+		return getUsername();
 	}
 }
