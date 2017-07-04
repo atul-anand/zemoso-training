@@ -1,7 +1,5 @@
 import java.util.*;
 public class Doctor extends Person{
-	private static int counter = 0;
-	private final int id = counter++;
 	private Speciality speciality;
 	private Authority authority;
 	private Set<Appointment> appointments;
@@ -15,6 +13,7 @@ public class Doctor extends Person{
 		this.availability = new TreeSet<Timing>(new TimingComparator());
 		this.timings = new TreeSet<Timing>(new TimingComparator());
 	}
+	// Making 15 mins time slots for next week.
 	public void addAvailableAppointments(Timing timing){
 		Calendar start = (Calendar)timing.getStartTime().clone();
 		Calendar end = (Calendar)timing.getEndTime().clone();
@@ -25,6 +24,7 @@ public class Doctor extends Person{
 			start.add(Calendar.MINUTE,30);
 		}
 	}
+	// Add next week's slot for a particular timing.
 	public void addAvailability(Timing timing, int week){
 		Calendar start = (Calendar)timing.getStartTime().clone();
 		Calendar end = (Calendar)timing.getEndTime().clone();
@@ -32,29 +32,35 @@ public class Doctor extends Person{
 		end.add(Calendar.WEEK_OF_YEAR,week);
 		addAvailableAppointments(new Timing(start,end));
 	}
+	// Add next week's timing.
 	public void extendTiming(int week) {
 		for(Timing timing : timings)
 			addAvailability(timing,week);
 	}
+	// Should be automatically called on sundays to populate next week's availabilities.
 	public void addTiming(Timing timing){
 		int week = timing.getStartTime().get(Calendar.WEEK_OF_YEAR);
 		addTiming(timing,week+1);
 	}
+	// week no of weeks from 1st Jan 2017 to populate that particular week's availabilities.
 	public void addTiming(Timing timing, int week) {
 		timings.add(timing);
 		addAvailability(timing,week);
 	}
+	// Check availability in particular time range.
 	public boolean availability(Timing timing){
 		for(Timing time : availability)
 			if(Timing.getStartMillis(time)>=Timing.getStartMillis(timing)&&Timing.getEndMillis(time)<=Timing.getEndMillis(timing))
 				return true;
 		return false;
 	}
+	// Print the weekly timings.
 	public void printTimings(){
 		for(Timing timing : timings)
 			if(availability(timing))
 				System.out.println(timing);
 	}
+	// Book appointment.
 	public Appointment makeAppointment(Patient patient){
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("\nAvailable Appointments (Sorted by earliest)");
@@ -75,6 +81,7 @@ public class Doctor extends Person{
 		}
 		return newAppointment;
 	}
+	// Remove a particular timing of doctor in case he'll stop visiting for that timing.
 	public void removeAvailability(Timing timing){
 		Iterator<Timing> avIter = availability.iterator();
 		while(avIter.hasNext()){
@@ -91,10 +98,9 @@ public class Doctor extends Person{
 	}
 	public Speciality getSpeciality(){ return speciality; }
 	public Set<Timing> getTimings() { return timings; }
-	public int getID() { return this.id; }
 	public Authority getAuthority() { return authority; }
 	public void setAuthority(Authority authority) { this.authority = authority; }
 	public String toString() {
-		return "id: " + getID() + " Dr. " + super.toString()+",Speciality:"+getSpeciality();
+		return "id: " + getID() + " Dr. " + super.toString()+", Speciality:"+getSpeciality();
 	}
 }

@@ -2,7 +2,6 @@ import java.util.*;
 public class AppointmentPortal extends Populate{
 	private Set<Appointment> appoints;
 	public AppointmentPortal(){
-		super();
 		appoints = new TreeSet<Appointment>(new TimingComparator());
 	}
 	public Speciality getSpecialityFromCondition(Condition condition){
@@ -16,6 +15,7 @@ public class AppointmentPortal extends Populate{
 		}
 		return spec.get(i);
 	}
+	// Select doctor with authority and speciality.
 	public Set<Doctor> getDoctors(Speciality speciality, Authority authority){
 		Set<Doctor> specialisedDoctors = new TreeSet<Doctor>(new DoctorComparator());
 		for(Doctor doc:doctors){
@@ -24,14 +24,14 @@ public class AppointmentPortal extends Populate{
 		}
 		return specialisedDoctors;
 	}
-	public int selectDoctor(){
+	// 
+	public int getDoctorByID(){
 		System.out.print("Enter Doctor's id.");
 		String response = "";
 		int respons = -1;
 		Scanner scanner = new Scanner(System.in);
-		if(scanner.hasNextLine()){
+		if(scanner.hasNextLine())
 			response = scanner.nextLine();
-		}
 		try {
 			respons = Integer.parseInt(response);
 		} catch (Exception e) {
@@ -48,14 +48,13 @@ public class AppointmentPortal extends Populate{
 		}
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Select Doctor to list available appointments.");
-
 		for(Doctor doc : specialisedDoctors){
 			System.out.println(doc);
 			doc.printTimings();
 		}
 		int docID = -1;
 		while(docID!=-1){
-			docID = selectDoctor();
+			docID = getDoctorByID();
 			if(docID!=-1)
 				break;
 			System.out.print("Press Q to quit. Any other key to try again.");

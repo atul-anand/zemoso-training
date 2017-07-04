@@ -1,10 +1,10 @@
 import java.util.*;
 public class PaymentPortal{
 	private List<User> users;
-	private Double balance;
+	private List<Transaction> transactions;
 	public PaymentPortal(){
 		users = new ArrayList<User>();
-		balance = 0.0;
+		transactions = new ArrayList<Transaction>();
 	}
 	public void addUser(User user){
 		users.add(user);
@@ -34,6 +34,36 @@ public class PaymentPortal{
 		int index = users.indexOf(user);
 		users.remove(index);
 	}
+	public PaymentMode makeMode(String paymentType){
+		if(paymentType.equals("DC"))
+			return new DebitCard();
+		if(paymentType.equals("CC"))
+			return new CreditCard();
+		if(paymentType.equals("COD"))
+			return new COD();
+		if(paymentType.equals("W"))
+			return new Wallets();
+		if(paymentType.equals("NB"))
+			return new NetBanking();
+		return null;
+	}
+	public void pay(){
+		Scanner scanner = new Scanner(System.in);
+		while(true){
+			System.out.print("Enter Mode of Payment(CC/DC/W/NB/COD):");
+			PaymentMode paymentMode = null;
+			if(scanner.hasNextLine()){
+				String modeType = scanner.nextLine();
+				if(modeType.equals("")){
+					System.out.println();
+					return;
+				}
+				paymentMode = makeMode(modeType);
+			}
+			transactions.add(paymentMode.pay());
+			System.out.println("Transaction approved using " + paymentMode + " for " + transactions.get(transactions.size()-1).getAmount());
+		}
+	}
 	public void transact(){
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Enter username: ");
@@ -54,8 +84,7 @@ public class PaymentPortal{
 			System.out.println("Incorrect Password, Try paying again!");
 			return;
 		}
-		Double amount = user.makePayment();
-		balance+=amount;
+		pay();
 	}
 	public User findUsername(String username){
 		for(User user : users){
@@ -74,9 +103,6 @@ public class PaymentPortal{
 			System.out.println("Username: " + user.getUsername());
 			user.printTransactions();
 		}
-	}
-	public Double getBalance(){
-		return balance;
 	}
 	public String toString(){
 		return "Amazon Payments";

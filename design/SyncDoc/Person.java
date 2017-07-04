@@ -6,13 +6,13 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	private Character gender;
-	private LocalDate dob;
+	private Calendar dob;
 	private String contact;
 	public Person(){
 		firstName = "Mark";
 		lastName = "Anthony";
 		gender = 'M';
-		dob = LocalDate.now();
+		dob = Calendar.getInstance();
 		contact = "9876543210";
 	}
 	public Person(String firstName, String lastName, char gender, String dob, String contact){
@@ -33,7 +33,7 @@ public class Person {
 	public String getLastName() { return lastName; }
 	public String getFullName() { return lastName + ", " + firstName; }
 	public Character getGender() { return gender; }
-	public LocalDate getDOB() { return dob; }
+	public Calendar getDOB() { return dob; }
 	public String getContact() { return contact; }
 	public void setFirstName(String firstName) { this.firstName = firstName; }
 	public void setLastName(String lastName) { this.lastName = lastName; }
@@ -43,23 +43,27 @@ public class Person {
 		else
 			this.gender = new Character(' ');
 	}
-	public void setDOB(LocalDate dob) { this.dob = dob; }
+	public void setDOB(Calendar dob) { this.dob = dob; }
 	public void setDOB(String dob) {
 		try {
 			int day = Integer.parseInt(dob.split("/")[0]);
 			int month = Integer.parseInt(dob.split("/")[1]);
 			int year = Integer.parseInt(dob.split("/")[2]);
-			this.dob.of(year,month,day);
+			this.dob.set(Calendar.YEAR,year);
+			this.dob.set(Calendar.MONTH,month);
+			this.dob.set(Calendar.DAY_OF_MONTH,day);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}	
 	}
+	public int getID(){ return id; }
 	public int getAge(){
-		return Period.between(this.dob, LocalDate.now()).getYears();
+		return TimeDiff.getYears(dob,Calendar.getInstance());
 	}
 	public void setContact(String contact) { this.contact = contact; }
 	public Person getDetails() { return this; }
 	public String toString() {
-		return getFullName()+",Age:"+getAge()+",Gender:"+getGender(); 
+		return getFullName()+", Gender:"+getGender(); 
+		// +",Age:"+getAge()
 	}
 }

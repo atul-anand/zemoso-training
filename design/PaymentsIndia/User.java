@@ -26,17 +26,8 @@ public class User{
 	public Double getBalance(){
 		return balance;
 	}
-	public Double makePayment(){
-		Transaction transaction = null;
-		try{
-			transaction = Payment.pay();
-		} catch (Exception e){}
-		if(transaction!=null){
-			transactions.add(transaction);
-			balance+=transaction.getAmount();
-			return transaction.getAmount();
-		}
-		return 0.0;
+	public void addTransaction(Transaction transaction){
+		transactions.add(transaction);
 	}
 	public void addTransaction(PaymentMode paymentMode, Double amount){
 		Transaction transaction = new Transaction(paymentMode,amount);
