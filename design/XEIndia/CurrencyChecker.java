@@ -3,8 +3,8 @@ public class CurrencyChecker implements Observer {
 	private double inr;
 	private static int observersCount = 0;
 	private final int observerID=++observersCount;
-	private Subject convertor;
-	public CurrencyChecker(Subject convertor, double inr){
+	private CurrencyConvertor convertor;
+	public CurrencyChecker(CurrencyConvertor convertor, double inr){
 		this.convertor = convertor;
 		this.inr = inr;
 		System.out.println("New observer "+this.observerID);

@@ -1,4 +1,5 @@
 import java.util.*;
+import java.text.*;
 public class Timing {
 	private Calendar start;
 	private Calendar end;
@@ -17,14 +18,15 @@ public class Timing {
 	public Calendar getEndTime() { return this.end; }
 	public void setStartTime(Calendar start) { this.start = start; }
 	public void setEndTime(Calendar end) { this.end = end; }	
-	static public Long getStartMillis(Timing timing){
-		return timing.getStartTime().getTimeInMillis();
+	static public int getStartHrMin(Timing timing){
+		return timing.getStartTime().get(Calendar.HOUR_OF_DAY)+timing.getStartTime().get(Calendar.MINUTE)*60;
 	}
-	static public Long getEndMillis(Timing timing){
-		return timing.getEndTime().getTimeInMillis();
+	static public int getEndHrMin(Timing timing){
+		return timing.getEndTime().get(Calendar.HOUR_OF_DAY)+timing.getEndTime().get(Calendar.MINUTE)*60;
 	}
-	
-	public String toString() { 
-		return "From "+start.toString()+" to "+end.toString(); 
+	// public boolean 
+	public String toString() {
+		SimpleDateFormat df = new SimpleDateFormat("EEE, hh:mm a");
+		return df.format(start.getTime())+" to "+df.format(end.getTime()); 
 	}
 }

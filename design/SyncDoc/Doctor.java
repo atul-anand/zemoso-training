@@ -17,11 +17,11 @@ public class Doctor extends Person{
 	public void addAvailableAppoints(Timing timing){
 		Calendar start = (Calendar)timing.getStartTime().clone();
 		Calendar end = (Calendar)timing.getEndTime().clone();
-		while(start.compareTo(end)<0){
+		while(start.compareTo(end)>0){
 			Calendar newEnd = (Calendar)start.clone();
 			newEnd.add(Calendar.MINUTE,15);
 			availability.add(new Timing(start,newEnd));
-			start.add(Calendar.MINUTE,30);
+			start.add(Calendar.MINUTE,15);
 		}
 	}
 	// Add next week's slot for a particular timing.
@@ -39,8 +39,8 @@ public class Doctor extends Person{
 	}
 	// Should be automatically called on sundays to populate next week's availabilities.
 	public void addTiming(Timing timing){
-		int week = timing.getStartTime().get(Calendar.WEEK_OF_YEAR);
-		addTiming(timing,week+1);
+		// int week = timing.getStartTime().get(Calendar.WEEK_OF_YEAR);
+		addTiming(timing,1);
 	}
 	// week no of weeks from 1st Jan 2017 to populate that particular week's availabilities.
 	public void addTiming(Timing timing, int week) {
@@ -50,7 +50,7 @@ public class Doctor extends Person{
 	// Check availability in particular time range.
 	public boolean availability(Timing timing){
 		for(Timing time : availability)
-			if(Timing.getStartMillis(time)>=Timing.getStartMillis(timing)&&Timing.getEndMillis(time)<=Timing.getEndMillis(timing))
+			if(Timing.getStartHrMin(time)>=Timing.getStartHrMin(timing)&&Timing.getEndHrMin(time)<=Timing.getEndHrMin(timing))
 				return true;
 		return false;
 	}
@@ -98,9 +98,10 @@ public class Doctor extends Person{
 	}
 	public Speciality getSpeciality(){ return speciality; }
 	public Set<Timing> getTimings() { return timings; }
+	public Set<Timing> getAvailability(){ return availability; }
 	public Authority getAuthority() { return authority; }
 	public void setAuthority(Authority authority) { this.authority = authority; }
 	public String toString() {
-		return "id: " + getID() + " Dr. " + super.toString()+", Speciality:"+getSpeciality();
+		return "id: " + getID() + " Dr. " + super.toString()+", Speciality: "+getSpeciality() + ", Authority: " + getAuthority();
 	}
 }

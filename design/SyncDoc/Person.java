@@ -12,7 +12,7 @@ public class Person {
 		firstName = "Mark";
 		lastName = "Anthony";
 		gender = 'M';
-		dob = Calendar.getInstance();
+		dob = (Calendar)Calendar.getInstance().clone();
 		contact = "9876543210";
 	}
 	public Person(String firstName, String lastName, char gender, String dob, String contact){
@@ -45,25 +45,27 @@ public class Person {
 	}
 	public void setDOB(Calendar dob) { this.dob = dob; }
 	public void setDOB(String dob) {
+		Calendar newCal = Calendar.getInstance();
 		try {
 			int day = Integer.parseInt(dob.split("/")[0]);
 			int month = Integer.parseInt(dob.split("/")[1]);
 			int year = Integer.parseInt(dob.split("/")[2]);
-			this.dob.set(Calendar.YEAR,year);
-			this.dob.set(Calendar.MONTH,month);
-			this.dob.set(Calendar.DAY_OF_MONTH,day);
+			newCal.set(Calendar.YEAR,year);
+			newCal.set(Calendar.MONTH,month);
+			newCal.set(Calendar.DAY_OF_MONTH,day);
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}	
+			e.printStackTrace();
+		}
+		setDOB(newCal);
+		System.out.println(this.dob.getTime());
 	}
 	public int getID(){ return id; }
 	public int getAge(){
-		return TimeDiff.getYears(dob,Calendar.getInstance());
+		return TimeDiff.getYears(Calendar.getInstance(),dob);
 	}
 	public void setContact(String contact) { this.contact = contact; }
 	public Person getDetails() { return this; }
 	public String toString() {
-		return getFullName()+", Gender:"+getGender(); 
-		// +",Age:"+getAge()
+		return getFullName()+", Gender:"+getGender() +", Age:"+getAge();
 	}
 }

@@ -15,9 +15,7 @@ public class TimeDiff {
     	int cal2Day = cal2.get(Calendar.DAY_OF_YEAR);
     	int dayDiff = cal1Day - cal2Day;
     	int yearDiff = cal1Year - cal2Year;
-    	int absDayDiff = Math.abs(dayDiff);
-    	dayDiff = dayDiff/absDayDiff;
-    	if(dayDiff<0)
+    	if(Math.signum(dayDiff)>0)
     		return yearDiff;
     	return yearDiff-1;
     }

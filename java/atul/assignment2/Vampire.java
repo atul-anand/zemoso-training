@@ -7,33 +7,32 @@
 package vampire;
 import java.util.*;
 import java.lang.Math.*;
-public class Vampire {
-	static class VampComparator implements Comparator<Vamps>{
-                @Override
-                public int compare(Vamps a, Vamps b) {
-			return a.vamp().compareTo(b.vamp());
-                    	}
-                }
-	static class Vamps {
-		public Integer i;
-		public Integer j;
-		public Vamps(int i, int j){
-			this.i=new Integer(i);
-			this.j=new Integer(j);
-		}
-		public Integer vamp(){
-			return new Integer(i*j);
-		}
-		public String toString(){
-			return (i*j)+":("+i+","+j+")";
-		}
+class Vamps {
+	public Integer i;
+	public Integer j;
+	public Vamps(int i, int j){
+		this.i=new Integer(i);
+		this.j=new Integer(j);
 	}
-	static Set<Vamps> vamp = new TreeSet<Vamps>(new VampComparator());
-        static void printSetVamps(Set<Vamps> set){
-                for(Vamps i:set)
-                        System.out.println(i+" ");
-        }
-	static boolean equalDigits(int i, int j){
+	public Integer vamp(){
+		return new Integer(i*j);
+	}
+	public String toString(){
+		return (i*j)+":("+i+","+j+")";
+	}
+}
+class VampComparator implements Comparator<Vamps>{
+    @Override
+    public int compare(Vamps a, Vamps b) {
+		return a.vamp().compareTo(b.vamp());
+    }
+}
+class Vampires {
+	private Set<Vamps> vamp;
+	public Vampires(){
+		vamp = new TreeSet<Vamps>(new VampComparator());
+	}
+    private boolean equalDigits(int i, int j){
 		int lenI = (int) Math.log10(i) + 1;
 		int lenJ = (int) Math.log10(j) + 1;
 		int lenT = (int) Math.log10(i*j) + 1;
@@ -41,14 +40,14 @@ public class Vampire {
 			return true;
 		return false;
 	}
-	static boolean checkMapEquality(Map<Integer,Integer> map, Map<Integer,Integer> map2){
+	private boolean checkMapEquality(Map<Integer,Integer> map, Map<Integer,Integer> map2){
 		if(map.size()!=map2.size())
 			return false;
 		if((map.toString()).equals(map2.toString()))
 			return true;
 		return false;
 	}
-	static Map<Integer,Integer> digitsMap(Map<Integer,Integer> map, int i){
+	private Map<Integer,Integer> digitsMap(Map<Integer,Integer> map, int i){
 		while(i>0){
 			Integer intI = new Integer(i%10);
 			if(map.get(intI)!=null)
@@ -59,7 +58,7 @@ public class Vampire {
 		}
 		return map;
 	}
-	static void checkVampire(int j, int i){
+	private void checkVampire(int j, int i){
 		Map<Integer,Integer> map = new TreeMap<Integer,Integer>();
 		map = digitsMap(map,i);
 		map = digitsMap(map,j);
@@ -70,7 +69,7 @@ public class Vampire {
 		if(checkMapEquality(map,map2))
 			vamp.add(new Vamps(i,j));
 	}
-	static void listVamps(int d) {
+	public void listVamps(int d) {
 		int llim = 1;
 		int ulim = (int)Math.sqrt(Math.pow(10,d));
 		for(int i=llim;i<ulim;i++)
@@ -78,13 +77,23 @@ public class Vampire {
 				if(equalDigits(i,j))
 					checkVampire(j,i);
 	}
+	public Set<Vamps> getVamps(){
+		return vamp;
+	}
+	public void printSetVamps(){
+        for(Vamps i:vamp)
+            System.out.println(i+" ");
+    }
+}
+public class Vampire {	
 	public static void main(String[] args){
 		Long start = System.currentTimeMillis();
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("Enter no of digits till all the vampire numbers are to be calculated:");
-		listVamps(scanner.nextInt());
-		printSetVamps(vamp);
-		System.out.println("Total numbers:" + vamp.size() + " Time Taken:" + (System.currentTimeMillis()-start)+"ms");
+		Vampires vamp = new Vampires();
+		vamp.listVamps(scanner.nextInt());
+		vamp.printSetVamps();
+		System.out.println("Total numbers:" + vamp.getVamps().size() + " Time Taken:" + (System.currentTimeMillis()-start)+"ms");
 	}
 }/* Output:
 Enter no of digits till all the vampire numbers are to be calculated:7
@@ -243,6 +252,6 @@ Enter no of digits till all the vampire numbers are to be calculated:7
 829696:(896,926) 
 841995:(891,945) 
 939658:(953,986) 
-Total numbers:155 Time Taken:3014ms
+Total numbers:155 Time Taken:1390ms
 *///:~
 

@@ -1,5 +1,6 @@
+import java.io.*;
 import java.util.*;
-public class Populate{
+public class Populate {
 	protected List<Person> persons;
 	protected List<Patient> patients;
 	protected List<Doctor> doctors;
@@ -10,7 +11,7 @@ public class Populate{
 		populatePersons();
 		populatePatients();
 		populateDoctors();
-		populateTimings();
+		populateTimings();		
 	}
 	public void addPerson(Person per){
 		if(!personPresent(persons,per)){
@@ -59,8 +60,8 @@ public class Populate{
 		addPerson(new Person("Nathan","Riggs",'M',"16/06/1961","9875456783"));
 		addPerson(new Person("Shane","Ross",'M',"29/10/1960","8797875465"));
 		addPerson(new Person("Teddy","Altman",'F',"25/11/1959","8946892986"));
-		addPerson(new Person("Mark","Dane",'M',"26/09/1964","8746564893"));
-		addPerson(new Person("Mark","Dane",'M',"06/12/1965","9794465893"));
+		addPerson(new Person("Mark","Kane",'M',"26/09/1964","8746564893"));
+		addPerson(new Person("Mark","Zane",'M',"06/12/1965","9794465893"));
 		addPerson(new Person("Rachel","McAdams",'F',"26/07/1967","7794564893"));
 		addPerson(new Person("Clint","McCain",'M',"02/08/1964","7954234893"));
 		addPerson(new Person("Sophie","Turner",'F',"27/10/1969","9874613893"));
@@ -176,6 +177,21 @@ public class Populate{
 	public void addAvailability(int week){
 		for(Doctor doc : doctors)
 			doc.extendTiming(week);
+	}
+	public void printTimings(){
+		for(Doctor doc : doctors){
+			System.out.println(doctors.indexOf(doc) + " " + doc);
+			for(Timing timing : doc.getTimings())
+				System.out.println(timing);
+		}
+	}
+
+	public void printAvailabilities(){
+		for(Doctor doc : doctors){
+			System.out.println(doctors.indexOf(doc) + " " + doc);
+			for(Timing timing : doc.getAvailability())
+				System.out.println(timing);
+		}
 	}
 	private boolean personPresent(Collection<?> list, Object entry){
 		for(Object obj:list)
