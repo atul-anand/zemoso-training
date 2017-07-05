@@ -16,12 +16,15 @@ public class Doctor extends Person{
 	// Making 15 mins time slots for next week.
 	public void addAvailableAppoints(Timing timing){
 		Calendar start = (Calendar)timing.getStartTime().clone();
-		Calendar end = (Calendar)timing.getEndTime().clone();
-		while(start.compareTo(end)>0){
-			Calendar newEnd = (Calendar)start.clone();
-			newEnd.add(Calendar.MINUTE,15);
-			availability.add(new Timing(start,newEnd));
+		Calendar end = (Calendar)timing.getStartTime().clone();
+		int meetings = Timing.getMeetings(timing);
+		// System.out.println(meetings + " " + start.getTime() + " " + end.getTime());
+		while(meetings>0){
+			end.add(Calendar.MINUTE,15);
+			availability.add(new Timing((Calendar)start.clone(),(Calendar)end.clone()));
+			System.out.println(meetings + " " + start.getTime() + " " + end.getTime());
 			start.add(Calendar.MINUTE,15);
+			meetings--;
 		}
 	}
 	// Add next week's slot for a particular timing.
@@ -39,8 +42,8 @@ public class Doctor extends Person{
 	}
 	// Should be automatically called on sundays to populate next week's availabilities.
 	public void addTiming(Timing timing){
-		// int week = timing.getStartTime().get(Calendar.WEEK_OF_YEAR);
-		addTiming(timing,1);
+		int week = timing.getStartTime().get(Calendar.WEEK_OF_YEAR);
+		addTiming(timing,week);
 	}
 	// week no of weeks from 1st Jan 2017 to populate that particular week's availabilities.
 	public void addTiming(Timing timing, int week) {
@@ -65,19 +68,29 @@ public class Doctor extends Person{
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("\nAvailable Appointments (Sorted by earliest)");
 		Appointment newAppointment = null;
-		for(Timing timing : availability){
-			System.out.println(timing + " Y to book/Q to quit/any key for next available appointment.");
+		boolean k = false;
+		int day = -1;
+		loop:for(Timing timing : availability){
+			if(k==true){
+				int newday = timing.getStartTime().get(Calendar.DAY_OF_WEEK);
+				if(day==newday)
+					continue;
+			}
+			System.out.println(timing + " Y to book/Q to quit/S to skip to next day/any key for next available appointment.");
 			String res = "";
+
 			if(scanner.hasNextLine())
 				res = scanner.nextLine();
 			switch(res){
 				case "Y" :  newAppointment = new Appointment(patient,this,timing);
 							removeAvailability(timing);
 							appointments.add(newAppointment);
+							break loop;
+				case "S" : 	k=true;
 							break;
-				case "Q" :  break;	
-				default  :  continue;
+				case "Q" :  return null;
 			}
+			day = timing.getStartTime().get(Calendar.DAY_OF_WEEK);
 		}
 		return newAppointment;
 	}
@@ -98,7 +111,6 @@ public class Doctor extends Person{
 	}
 	public Speciality getSpeciality(){ return speciality; }
 	public Set<Timing> getTimings() { return timings; }
-	public Set<Timing> getAvailability(){ return availability; }
 	public Authority getAuthority() { return authority; }
 	public void setAuthority(Authority authority) { this.authority = authority; }
 	public String toString() {

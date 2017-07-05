@@ -2,9 +2,6 @@ import java.util.*;
 public class TimingObject {
 	private Calendar cal;
 	TimingObject(String dayTime){
-		stdTime(dayTime);
-	}
-	public void stdTime(String dayTime){
 		cal = Calendar.getInstance();
 		cal.set(Calendar.YEAR,2017);
 		//Wed,12:00 PM
@@ -42,10 +39,6 @@ public class TimingObject {
 		cal.set(Calendar.HOUR_OF_DAY,hour);
 		cal.set(Calendar.MINUTE,minute);
 		cal.set(Calendar.SECOND,0);
-	}
-	static int stdTime(Timing time){
-
-		return 0;
 	}
 	public Calendar getTiming() { return cal; }
 	public String toString() { return cal.toString(); }

@@ -7,5 +7,5 @@ public class Patient extends Person{
 	}
 	public Condition getCondition() { return condition; }
 	public void setCondition(Condition condition) { this.condition = condition; }
-	public String toString() { return "id: " + getID() + " " + super.toString() + ", Condition: "+ getCondition(); }
+	public String toString() { return 	super.toString() + ", Condition: "+ getCondition(); }
 }

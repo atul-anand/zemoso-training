@@ -20,6 +20,6 @@ public class Appointment extends Timing{
 	public Patient getPatient() { return this.patient; }
 	public Doctor getDoctor() { return this.doctor; }
 	public String toString() { 
-		return patient.toString()+" with " + doctor.toString() + " from "+getStartTime().toString()+" to "+getEndTime().toString(); 
+		return patient.getProperName()+" with Dr. " + doctor.getProperName() + " from "+getStartTime().getTime()+" to "+getEndTime().getTime(); 
 	}
 }

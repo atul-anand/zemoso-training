@@ -103,60 +103,102 @@ public class Populate {
 		addDoctor(new Doctor(persons.get(24),Speciality.Orthopaedic,Authority.Senior));			
 	}
 	public void populateTimings(){
-		doctors.get(0).addTiming(new Timing("Wed,12:00 PM","Wed,06:00 PM"));
-		doctors.get(0).addTiming(new Timing("Mon,08:00 AM","Mon,02:00 PM"));
-		doctors.get(0).addTiming(new Timing("Fri,10:00 AM","Fri,04:00 PM"));
-		doctors.get(0).addTiming(new Timing("Sun,09:00 AM","Sun,03:00 PM"));
-		doctors.get(1).addTiming(new Timing("Tue,12:00 PM","Tue,06:00 PM"));
-		doctors.get(1).addTiming(new Timing("Mon,08:00 AM","Mon,02:00 PM"));
-		doctors.get(1).addTiming(new Timing("Thu,10:00 AM","Thu,04:00 PM"));
-		doctors.get(2).addTiming(new Timing("Sat,09:00 AM","Sat,03:00 PM"));
-		doctors.get(2).addTiming(new Timing("Tue,12:00 PM","Tue,06:00 PM"));
-		doctors.get(2).addTiming(new Timing("Mon,08:00 AM","Mon,02:00 PM"));
-		doctors.get(3).addTiming(new Timing("Fri,10:00 AM","Fri,04:00 PM"));
-		doctors.get(3).addTiming(new Timing("Sun,09:00 AM","Sun,03:00 PM"));
-		doctors.get(4).addTiming(new Timing("Wed,12:00 PM","Wed,06:00 PM"));
-		doctors.get(5).addTiming(new Timing("Mon,08:00 AM","Mon,02:00 PM"));
-		doctors.get(5).addTiming(new Timing("Fri,10:00 AM","Fri,04:00 PM"));
-		doctors.get(5).addTiming(new Timing("Sun,09:00 AM","Sun,03:00 PM"));
-		doctors.get(6).addTiming(new Timing("Tue,12:00 PM","Tue,06:00 PM"));
-		doctors.get(6).addTiming(new Timing("Mon,08:00 AM","Mon,02:00 PM"));
-		doctors.get(7).addTiming(new Timing("Thu,10:00 AM","Thu,04:00 PM"));
-		doctors.get(7).addTiming(new Timing("Sat,09:00 AM","Sat,03:00 PM"));
-		doctors.get(7).addTiming(new Timing("Tue,12:00 PM","Tue,06:00 PM"));
-		doctors.get(8).addTiming(new Timing("Mon,08:00 AM","Mon,02:00 PM"));
-		doctors.get(8).addTiming(new Timing("Fri,10:00 AM","Fri,04:00 PM"));
-		doctors.get(8).addTiming(new Timing("Sun,09:00 AM","Sun,03:00 PM"));
-		doctors.get(9).addTiming(new Timing("Wed,12:00 PM","Wed,06:00 PM"));
-		doctors.get(9).addTiming(new Timing("Mon,08:00 AM","Mon,02:00 PM"));
-		doctors.get(9).addTiming(new Timing("Fri,10:00 AM","Fri,04:00 PM"));
-		doctors.get(10).addTiming(new Timing("Wed,12:00 PM","Wed,02:00 PM"));
-		doctors.get(10).addTiming(new Timing("Mon,08:00 AM","Mon,10:00 AM"));
-		doctors.get(10).addTiming(new Timing("Fri,10:00 AM","Fri,12:00 PM"));
-		doctors.get(11).addTiming(new Timing("Sun,09:00 AM","Sun,11:00 AM"));
-		doctors.get(11).addTiming(new Timing("Tue,12:00 PM","Tue,02:00 PM"));
-		doctors.get(11).addTiming(new Timing("Mon,08:00 AM","Mon,10:00 AM"));
-		doctors.get(11).addTiming(new Timing("Thu,10:00 AM","Thu,12:00 PM"));
-		doctors.get(12).addTiming(new Timing("Sat,09:00 AM","Sat,11:00 AM"));
-		doctors.get(12).addTiming(new Timing("Tue,12:00 PM","Tue,02:00 PM"));
-		doctors.get(12).addTiming(new Timing("Mon,08:00 AM","Mon,10:00 AM"));
-		doctors.get(13).addTiming(new Timing("Fri,10:00 AM","Fri,12:00 PM"));
-		doctors.get(13).addTiming(new Timing("Sun,09:00 AM","Sun,11:00 AM"));
-		doctors.get(14).addTiming(new Timing("Wed,12:00 PM","Wed,02:00 PM"));
-		doctors.get(15).addTiming(new Timing("Mon,08:00 AM","Mon,10:00 AM"));
-		doctors.get(15).addTiming(new Timing("Fri,10:00 AM","Fri,12:00 PM"));
-		doctors.get(15).addTiming(new Timing("Sun,09:00 AM","Sun,11:00 AM"));
-		doctors.get(16).addTiming(new Timing("Tue,12:00 PM","Tue,02:00 PM"));
-		doctors.get(16).addTiming(new Timing("Mon,08:00 AM","Mon,10:00 PM"));
-		doctors.get(17).addTiming(new Timing("Thu,10:00 AM","Thu,12:00 PM"));
-		doctors.get(17).addTiming(new Timing("Sat,09:00 AM","Sat,11:00 AM"));
-		doctors.get(17).addTiming(new Timing("Tue,12:00 PM","Tue,02:00 PM"));
-		doctors.get(18).addTiming(new Timing("Mon,08:00 AM","Mon,10:00 AM"));
-		doctors.get(18).addTiming(new Timing("Fri,10:00 AM","Fri,12:00 PM"));
-		doctors.get(18).addTiming(new Timing("Sun,09:00 AM","Sun,11:00 AM"));
-		doctors.get(19).addTiming(new Timing("Wed,12:00 PM","Wed,02:00 PM"));
-		doctors.get(19).addTiming(new Timing("Mon,08:00 AM","Mon,10:00 AM"));
-		doctors.get(19).addTiming(new Timing("Fri,10:00 AM","Fri,12:00 PM"));
+		Doctor doc0 = doctors.get(0);
+		Doctor doc1 = doctors.get(1);
+		Doctor doc2 = doctors.get(2);
+		Doctor doc3 = doctors.get(3);
+		Doctor doc4 = doctors.get(4);
+		Doctor doc5 = doctors.get(5);
+		Doctor doc6 = doctors.get(6);
+		Doctor doc7 = doctors.get(7);
+		Doctor doc8 = doctors.get(8);
+		Doctor doc9 = doctors.get(9);
+		Doctor doc10 = doctors.get(10);
+		Doctor doc11 = doctors.get(11);
+		Doctor doc12 = doctors.get(12);
+		Doctor doc13 = doctors.get(13);
+		Doctor doc14 = doctors.get(14);
+		Doctor doc15 = doctors.get(15);
+		Doctor doc16 = doctors.get(16);
+		Doctor doc17 = doctors.get(17);
+		Doctor doc18 = doctors.get(18);
+		Doctor doc19 = doctors.get(19);
+		doc0.addTiming(new Timing("Wed,12:00 PM","Wed,06:00 PM"));
+		doc0.addTiming(new Timing("Mon,08:00 AM","Mon,02:00 PM"));
+		doc0.addTiming(new Timing("Fri,10:00 AM","Fri,04:00 PM"));
+		doc0.addTiming(new Timing("Sun,09:00 AM","Sun,03:00 PM"));
+		doc1.addTiming(new Timing("Tue,12:00 PM","Tue,06:00 PM"));
+		doc1.addTiming(new Timing("Mon,08:00 AM","Mon,02:00 PM"));
+		doc1.addTiming(new Timing("Thu,10:00 AM","Thu,04:00 PM"));
+		doc2.addTiming(new Timing("Sat,09:00 AM","Sat,03:00 PM"));
+		doc2.addTiming(new Timing("Tue,12:00 PM","Tue,06:00 PM"));
+		doc2.addTiming(new Timing("Mon,08:00 AM","Mon,02:00 PM"));
+		doc3.addTiming(new Timing("Fri,10:00 AM","Fri,04:00 PM"));
+		doc3.addTiming(new Timing("Sun,09:00 AM","Sun,03:00 PM"));
+		doc4.addTiming(new Timing("Wed,12:00 PM","Wed,06:00 PM"));
+		doc5.addTiming(new Timing("Mon,08:00 AM","Mon,02:00 PM"));
+		doc5.addTiming(new Timing("Fri,10:00 AM","Fri,04:00 PM"));
+		doc5.addTiming(new Timing("Sun,09:00 AM","Sun,03:00 PM"));
+		doc6.addTiming(new Timing("Tue,12:00 PM","Tue,06:00 PM"));
+		doc6.addTiming(new Timing("Mon,08:00 AM","Mon,02:00 PM"));
+		doc7.addTiming(new Timing("Thu,10:00 AM","Thu,04:00 PM"));
+		doc7.addTiming(new Timing("Sat,09:00 AM","Sat,03:00 PM"));
+		doc7.addTiming(new Timing("Tue,12:00 PM","Tue,06:00 PM"));
+		doc8.addTiming(new Timing("Mon,08:00 AM","Mon,02:00 PM"));
+		doc8.addTiming(new Timing("Fri,10:00 AM","Fri,04:00 PM"));
+		doc8.addTiming(new Timing("Sun,09:00 AM","Sun,03:00 PM"));
+		doc9.addTiming(new Timing("Wed,12:00 PM","Wed,06:00 PM"));
+		doc9.addTiming(new Timing("Mon,08:00 AM","Mon,02:00 PM"));
+		doc9.addTiming(new Timing("Fri,10:00 AM","Fri,04:00 PM"));
+		doc10.addTiming(new Timing("Wed,12:00 PM","Wed,02:00 PM"));
+		doc10.addTiming(new Timing("Mon,08:00 AM","Mon,10:00 AM"));
+		doc10.addTiming(new Timing("Fri,10:00 AM","Fri,12:00 PM"));
+		doc11.addTiming(new Timing("Sun,09:00 AM","Sun,11:00 AM"));
+		doc11.addTiming(new Timing("Tue,12:00 PM","Tue,02:00 PM"));
+		doc11.addTiming(new Timing("Mon,08:00 AM","Mon,10:00 AM"));
+		doc11.addTiming(new Timing("Thu,10:00 AM","Thu,12:00 PM"));
+		doc12.addTiming(new Timing("Sat,09:00 AM","Sat,11:00 AM"));
+		doc12.addTiming(new Timing("Tue,12:00 PM","Tue,02:00 PM"));
+		doc12.addTiming(new Timing("Mon,08:00 AM","Mon,10:00 AM"));
+		doc13.addTiming(new Timing("Fri,10:00 AM","Fri,12:00 PM"));
+		doc13.addTiming(new Timing("Sun,09:00 AM","Sun,11:00 AM"));
+		doc14.addTiming(new Timing("Wed,12:00 PM","Wed,02:00 PM"));
+		doc15.addTiming(new Timing("Mon,08:00 AM","Mon,10:00 AM"));
+		doc15.addTiming(new Timing("Fri,10:00 AM","Fri,12:00 PM"));
+		doc15.addTiming(new Timing("Sun,09:00 AM","Sun,11:00 AM"));
+		doc16.addTiming(new Timing("Tue,12:00 PM","Tue,02:00 PM"));
+		doc16.addTiming(new Timing("Mon,08:00 AM","Mon,10:00 PM"));
+		doc17.addTiming(new Timing("Thu,10:00 AM","Thu,12:00 PM"));
+		doc17.addTiming(new Timing("Sat,09:00 AM","Sat,11:00 AM"));
+		doc17.addTiming(new Timing("Tue,12:00 PM","Tue,02:00 PM"));
+		doc18.addTiming(new Timing("Mon,08:00 AM","Mon,10:00 AM"));
+		doc18.addTiming(new Timing("Fri,10:00 AM","Fri,12:00 PM"));
+		doc18.addTiming(new Timing("Sun,09:00 AM","Sun,11:00 AM"));
+		doc19.addTiming(new Timing("Wed,12:00 PM","Wed,02:00 PM"));
+		doc19.addTiming(new Timing("Mon,08:00 AM","Mon,10:00 AM"));
+		doc19.addTiming(new Timing("Fri,10:00 AM","Fri,12:00 PM"));
+		List<Doctor> newDoctors = new ArrayList<Doctor>();
+		newDoctors.add(doc0);
+		newDoctors.add(doc1);
+		newDoctors.add(doc2);
+		newDoctors.add(doc3);
+		newDoctors.add(doc4);
+		newDoctors.add(doc5);
+		newDoctors.add(doc6);
+		newDoctors.add(doc7);
+		newDoctors.add(doc8);
+		newDoctors.add(doc9);
+		newDoctors.add(doc10);
+		newDoctors.add(doc11);
+		newDoctors.add(doc12);
+		newDoctors.add(doc13);
+		newDoctors.add(doc14);
+		newDoctors.add(doc15);
+		newDoctors.add(doc16);
+		newDoctors.add(doc17);
+		newDoctors.add(doc18);
+		newDoctors.add(doc19);
+		doctors = newDoctors;
 	}
 	public List<Person> getPersons() { return persons; }
 	public List<Patient> getPatients() { return patients; }
@@ -182,14 +224,6 @@ public class Populate {
 		for(Doctor doc : doctors){
 			System.out.println(doctors.indexOf(doc) + " " + doc);
 			for(Timing timing : doc.getTimings())
-				System.out.println(timing);
-		}
-	}
-
-	public void printAvailabilities(){
-		for(Doctor doc : doctors){
-			System.out.println(doctors.indexOf(doc) + " " + doc);
-			for(Timing timing : doc.getAvailability())
 				System.out.println(timing);
 		}
 	}

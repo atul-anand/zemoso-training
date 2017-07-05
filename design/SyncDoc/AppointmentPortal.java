@@ -39,7 +39,15 @@ public class AppointmentPortal extends Populate{
 		}
 		return respons;
 	}
+	public boolean checkDoctors(Set<Doctor> docs, int id){
+		boolean k=false;
+		for(Doctor doc : docs)
+			if(doc.getID()==id)
+				k=true;
+		return k;
+	}
 	public void makeAppointment(Patient patient, Authority authority){
+		System.out.println("Welcome " + patient);
 		Speciality spec = getSpecFromCond((patient.getCondition()));
 		Set<Doctor> specialisedDoctors = getDoctors(spec,authority);
 		if(specialisedDoctors.size()==0){
@@ -47,27 +55,40 @@ public class AppointmentPortal extends Populate{
 			return;
 		}
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Select Doctor to list available appointments.");
+		System.out.println("\nSelect Doctor to list available appointments.");
 		for(Doctor doc : specialisedDoctors){
 			System.out.println(doc);
 			doc.printTimings();
 		}
 		int docID = -1;
-		while(docID!=-1){
-			docID = getDoctorByID();
-			if(docID!=-1)
-				break;
-			System.out.print("Press Q to quit. Any other key to try again.");
-			if(scanner.hasNextLine())
-				if(scanner.nextLine().equals("Q"))
-					return;
-		}
 		Appointment newAppointment = null;
-		for(Doctor doc : doctors)
-			if(doc.getID()==docID){
-				newAppointment = doc.book(patient);
+		loop:while(true){
+			System.out.print("\nEnter Doctor's id.");
+			String response = "";
+			if(scanner.hasNextLine())
+				response = scanner.nextLine();
+			try {
+				docID = Integer.parseInt(response);
+			} catch (Exception e) {
+				System.out.println("Invalid Entry.");
+			}
+			if(!checkDoctors(specialisedDoctors,docID)){
+				System.out.println("ID not available.");
 				break;
 			}
+			System.out.print("\nPress Y to see listings/Q to quit.");
+			if(scanner.hasNextLine())
+				switch(scanner.nextLine()){
+					case "Y":   for(Doctor doc : doctors)
+								if(doc.getID()==docID){
+									newAppointment = doc.book(patient);
+									break loop;
+								}
+								break;
+					case "Q":   break loop;
+				}
+		
+		}		
 		if(newAppointment==null){
 			System.out.println("Appointment not booked.");
 			return;

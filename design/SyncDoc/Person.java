@@ -31,7 +31,7 @@ public class Person {
 	}
 	public String getFirstName() { return firstName; }
 	public String getLastName() { return lastName; }
-	public String getFullName() { return lastName + ", " + firstName; }
+	public String getFullName() { return firstName + " " + lastName; }
 	public Character getGender() { return gender; }
 	public Calendar getDOB() { return dob; }
 	public String getContact() { return contact; }
@@ -66,6 +66,6 @@ public class Person {
 	public void setContact(String contact) { this.contact = contact; }
 	public Person getDetails() { return this; }
 	public String toString() {
-		return getFullName()+", Gender:"+getGender() +", Age:"+getAge();
+		return getFullName()+", Gender: "+getGender() +", Age: "+getAge();
 	}
 }

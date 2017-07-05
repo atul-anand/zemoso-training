@@ -12,19 +12,22 @@ public class Timing {
 		this.end = end;
 	}
 	public Timing(Timing timing){
-
+		this.start = (Calendar)timing.getStartTime().clone();
+		this.end = (Calendar)timing.getEndTime().clone();
 	}
 	public Calendar getStartTime() { return this.start; }
 	public Calendar getEndTime() { return this.end; }
 	public void setStartTime(Calendar start) { this.start = start; }
 	public void setEndTime(Calendar end) { this.end = end; }	
 	static public int getStartHrMin(Timing timing){
-		return timing.getStartTime().get(Calendar.HOUR_OF_DAY)+timing.getStartTime().get(Calendar.MINUTE)*60;
+		return timing.getStartTime().get(Calendar.HOUR_OF_DAY)*60+timing.getStartTime().get(Calendar.MINUTE);
 	}
 	static public int getEndHrMin(Timing timing){
-		return timing.getEndTime().get(Calendar.HOUR_OF_DAY)+timing.getEndTime().get(Calendar.MINUTE)*60;
+		return timing.getEndTime().get(Calendar.HOUR_OF_DAY)*60+timing.getEndTime().get(Calendar.MINUTE);
 	}
-	// public boolean 
+	static public int getMeetings(Timing timing){
+		return (Timing.getEndHrMin(timing)-Timing.getStartHrMin(timing))/15;
+	}
 	public String toString() {
 		SimpleDateFormat df = new SimpleDateFormat("EEE, hh:mm a");
 		return df.format(start.getTime())+" to "+df.format(end.getTime()); 
