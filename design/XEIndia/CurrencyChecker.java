@@ -1,13 +1,11 @@
 import java.text.*;
 public class CurrencyChecker implements Observer {
 	private double inr;
-	private static int observersCount = 0;
-	private final int observerID=++observersCount;
 	private CurrencyConvertor convertor;
 	public CurrencyChecker(CurrencyConvertor convertor, double inr){
 		this.convertor = convertor;
 		this.inr = inr;
-		System.out.println("New observer "+this.observerID);
+		System.out.println("New observer "+convertor.getID(this));
 		convertor.add(this);
 	}
 	public void update(){
@@ -19,7 +17,7 @@ public class CurrencyChecker implements Observer {
 	}
 	public void printRates(){
 		DecimalFormat df = new DecimalFormat("#.00");
-		System.out.println("Observer " + observerID + " INR:" + inr + 
+		System.out.println("Observer " + convertor.getID(this) + " INR:" + inr + 
 							"\nUSD:" + df.format(inr/(convertor.getUSD())) +
 							"\nGBP:" + df.format(inr/(convertor.getGBP())) + 
 							"\nEuro:" + df.format(inr/(convertor.getEuro())) + "\n");

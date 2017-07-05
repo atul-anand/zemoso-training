@@ -1,9 +1,6 @@
 public class Convertor{
 	public static void main(String[] args){
 		CurrencyConvertor currencyConvertor = new CurrencyConvertor(65,80,69);
-		currencyConvertor.setUSD(65);
-		currencyConvertor.setGBP(80);
-		currencyConvertor.setEuro(69);
 		CurrencyChecker observer1 = new CurrencyChecker(currencyConvertor,13254);
 		observer1.setINR(543);
 		currencyConvertor.setUSD(66);
@@ -19,7 +16,7 @@ public class Convertor{
 		currencyConvertor.setUSD(67);
 		currencyConvertor.setGBP(82);
 		currencyConvertor.setEuro(70);
-		currencyConvertor.remove(observer2);
+		currencyConvertor.remove(2);
 		currencyConvertor.setUSD(65);
 		currencyConvertor.setGBP(80);
 		currencyConvertor.setEuro(69);

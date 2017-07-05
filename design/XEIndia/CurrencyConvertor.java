@@ -13,14 +13,16 @@ public class CurrencyConvertor implements Subject {
 	public void add(Observer observer){
 		observers.add(observer);
 	}
-	public void remove(Observer observer){
-		int index = observers.indexOf(observer);
-		System.out.println("Observer "+(index+1)+" removed");
-		observers.remove(index);
+	public void remove(int index){
+		System.out.println("Observer "+index+" removed");
+		observers.remove(index-1);
 	}
 	public void notifyObserver(){
 		for(Observer observer:observers)
 			observer.update();
+	}
+	public int getID(Observer observer){
+		return observers.indexOf(observer)+1;
 	}
 	public void setUSD(double usd){
 		this.usdRate = usd;
