@@ -1,13 +1,14 @@
-CREATE TABLE Emp_Repo(
-	emp_repo_id bigint(10) NOT NULL,
-	emp_id bigint(10) NOT NULL,
-	repo_id bigint(10) NOT NULL,
+CREATE TABLE Driver (
+	driver_id bigint(10) NOT NULL,
+	first_name varchar(30) NOT NULL,
+	last_name varchar(30) NOT NULL,
+	license_no varchar(10) NOT NULL,
+	contact_no bigint(10) NOT NULL,
 	created_tstamp datetime DEFAULT NULL, 
 	created_by_id bigint(20) NOT NULL, 
 	deleted_tstamp datetime DEFAULT NULL, 
 	deleted_by_id bigint(20) DEFAULT NULL, 
 	last_updated_tstamp datetime DEFAULT NULL, 
 	last_updated_by_id bigint(20) NOT NULL,
-	PRIMARY KEY (emp_repo_id),
-	CONSTRAINT UC_Emp_Repo UNIQUE (emp_id,repo_id)
+	PRIMARY KEY (driver_id)
 ) Engine=InnoDB DEFAULT CHARSET=utf8;
