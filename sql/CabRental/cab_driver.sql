@@ -11,6 +11,8 @@ CREATE TABLE Cab_Driver (
 	last_updated_by_id bigint(20) NOT NULL,
 	-- PRIMARY KEY (cab_driver_id),
 	CONSTRAINT UC_Cab_Driver UNIQUE(cab_id,driver_id,start_date),
+	-- KEY idx_fk_cab_id (cab_id),
+	-- KEY idx_fk_driver_id (driver_id),
 	CONSTRAINT FK_Cab_ID FOREIGN KEY (cab_id) REFERENCES Cab (cab_id) ON DELETE RESTRICT ON UPDATE CASCADE,
 	CONSTRAINT FK_Driver_ID FOREIGN KEY (driver_id) REFERENCES Driver (driver_id) ON DELETE RESTRICT ON UPDATE CASCADE
 ) Engine=InnoDB DEFAULT CHARSET=utf8;

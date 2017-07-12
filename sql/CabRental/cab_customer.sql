@@ -12,6 +12,8 @@ CREATE TABLE Cab_Customer (
 	last_updated_by_id bigint(20) NOT NULL,
 	-- PRIMARY KEY (cab_cust_id),
 	CONSTRAINT UC_Cab_Customer UNIQUE(cab_id,cust_id,trip_start),
+	-- KEY idx_fk_cab_id (cab_id),
+	-- KEY idx_fk_cust_id (cust_id),
 	CONSTRAINT FK_Cab_ID FOREIGN KEY (cab_id) REFERENCES Cab (cab_id) ON DELETE RESTRICT ON UPDATE CASCADE,
 	CONSTRAINT FK_Cust_ID FOREIGN KEY (cust_id) REFERENCES Customer (cust_id) ON DELETE RESTRICT ON UPDATE CASCADE
 ) Engine=InnoDB DEFAULT CHARSET=utf8;

@@ -10,6 +10,8 @@ CREATE TABLE Emp_Sup(
 	last_updated_by_id bigint(20) NOT NULL,
 	-- PRIMARY KEY (emp_sup_id),
 	CONSTRAINT UC_Emp_Sup UNIQUE (emp_id,sup_id),
+	-- KEY idx_fk_emp_id (emp_id),
+	-- KEY idx_fk_sup_id (sup_id),
 	CONSTRAINT FK_Emp_Id FOREIGN KEY (emp_id) REFERENCES Employee (emp_id) ON DELETE RESTRICT ON UPDATE CASCADE,
 	CONSTRAINT FK_Sup_Id FOREIGN KEY (sup_id) REFERENCES Employee (emp_id) ON DELETE RESTRICT ON UPDATE CASCADE
 	-- CONSTRAINT FK_Sup_ID FOREIGN KEY (sup_id) REFERENCES Supervisor (sup_id) ON DELETE RESTRICT ON UPDATE CASCADE

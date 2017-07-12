@@ -11,32 +11,27 @@ use EmpProj;
 -- 
 
 source ./employee.sql;
-\! echo "Employee Table Created.\n"
 
 -- 
 -- Table Structure for table 'Supervisor'
 -- 
 
-source ./supervisor.sql;
-\! echo "Supervisor Table Created.\n"
+-- source ./supervisor.sql;
 
 -- 
 -- Table Structure for table 'Project'
 -- 
 
 source ./project.sql;
-\! echo "Project Table Created.\n"
 
 -- 
 -- Table Structure for table 'Employee-Project'
 -- 
 
 source ./emp_proj.sql;
-\! echo "Employee-Project Relation Created.\n"
 
 -- 
 -- Table Structure for table 'Employee-Supervisor'
 -- 
 
 source ./emp_sup.sql;
-\! echo "Employee-Supervisor Relation Created.\n"
