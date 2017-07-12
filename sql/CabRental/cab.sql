@@ -1,5 +1,5 @@
 CREATE TABLE Cab (
-	cab_id bigint(10) NOT NULL,
+	cab_id bigint(10) NOT NULL AUTO_INCREMENT,
 	cab_number varchar(20) NOT NULL,
 	cab_type varchar(20) NOT NULL,
 	created_tstamp datetime DEFAULT NULL, 

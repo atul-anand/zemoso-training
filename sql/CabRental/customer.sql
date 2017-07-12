@@ -1,5 +1,5 @@
 CREATE TABLE Customer (
-	cust_id bigint(10) NOT NULL,
+	cust_id bigint(10) NOT NULL AUTO_INCREMENT,
 	first_name varchar(30) NOT NULL,
 	last_name varchar(30) NOT NULL,
 	contact_no bigint(10) NOT NULL,

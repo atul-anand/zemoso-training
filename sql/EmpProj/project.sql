@@ -1,5 +1,5 @@
 CREATE TABLE Project(
-	proj_id bigint(10) NOT NULL,
+	proj_id bigint(10) NOT NULL AUTO_INCREMENT,
 	name varchar(30) NOT NULL,
 	description varchar(100) NOT NULL,
 	no_of_employees bigint(10) NOT NULL,

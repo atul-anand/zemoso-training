@@ -7,21 +7,21 @@ CREATE SCHEMA CabRental;
 use CabRental;
 
 -- 
--- Table Structure for table 'cab'
+-- Table Structure for table 'Cab'
 -- 
 
 source ./cab.sql;
 \! echo "Cab Table Created.\n"
 
 -- 
--- Table Structure for table 'cab'
+-- Table Structure for table 'Driver'
 -- 
 
 source ./driver.sql;
 \! echo "Driver Table Created.\n"
 
 -- 
--- Table Structure for table 'cab'
+-- Table Structure for table 'Customer'
 -- 
 
 source ./customer.sql;
@@ -29,7 +29,7 @@ source ./customer.sql;
 
 
 -- 
--- Table Structure for table 'cab'
+-- Table Structure for table 'Cab-Driver'
 -- 
 
 source ./cab_driver.sql;
@@ -37,7 +37,7 @@ source ./cab_driver.sql;
 
 
 -- 
--- Table Structure for table 'cab'
+-- Table Structure for table 'Cab-Customer'
 -- 
 
 source ./cab_customer.sql;

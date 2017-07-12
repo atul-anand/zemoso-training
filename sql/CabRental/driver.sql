@@ -1,5 +1,5 @@
 CREATE TABLE Driver (
-	driver_id bigint(10) NOT NULL,
+	driver_id bigint(10) NOT NULL AUTO_INCREMENT,
 	first_name varchar(30) NOT NULL,
 	last_name varchar(30) NOT NULL,
 	license_no varchar(10) NOT NULL,

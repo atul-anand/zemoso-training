@@ -1,5 +1,5 @@
 CREATE TABLE Employee ( 
-	emp_id bigint(10) NOT NULL, 
+	emp_id bigint(10) NOT NULL AUTO_INCREMENT, 
 	first_name varchar(30) NOT NULL, 
 	last_name varchar(30) NOT NULL, 
 	birth_date datetime DEFAULT NULL,
