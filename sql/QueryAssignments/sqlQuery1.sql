@@ -6,7 +6,7 @@ select f.title, f.rating
             on fc.film_id = f.film_id
         join category cat 
             on cat.category_id = fc.category_id
-	where cat.name = "Comedy"
+    where cat.name = "Comedy"
     and f.rating = "PG-13";
 
 \! echo "Top 3 rented Horror movies";
@@ -42,7 +42,7 @@ select cust.*
             on fc.film_id = inv.film_id
         join category cat
             on cat.category_id = fc.category_id
-	where cnt.country = "India"
+    where cnt.country = "India"
     and cat.name = "Sports";
 
 \! echo "Canadian customers who rented movies of Nick Wahlberg";
@@ -62,7 +62,7 @@ select cust.*
             on fa.film_id = inv.film_id
         join actor a
             on a.actor_id = fa.actor_id
-	where cnt.country = "Canada"
+    where cnt.country = "Canada"
     and a.first_name = "NICK"
     and a.last_name = "WAHLBERG";
 
@@ -73,5 +73,5 @@ select count(*)
             on fa.film_id = f.film_id
         join actor a
             on a.actor_id = fa.actor_id
-	where a.first_name = "SEAN"
+    where a.first_name = "SEAN"
     and a.last_name = "WILLIAMS";
