@@ -1,6 +1,11 @@
 -- Cab Rental Database schema
 -- Author: Atul Anand
 
+-- Constraints
+-- One driver can drive one cab. One cab can be driven by one driver.
+-- One cab can have more than one customer. One customer cannot be in more than one cab at the same time.
+-- Each cab must have a driver. 
+
 -- Cab - Driver Relation
 -- Cab: Weak entity
 -- Driver: Strong entity

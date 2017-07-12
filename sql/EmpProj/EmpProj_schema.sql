@@ -1,6 +1,11 @@
 -- Employee Projects Database schema
 -- Author: Atul Anand
 
+-- Constraints
+-- One employee will report to only one person. One person can be reported by many people.
+-- One employee will be part of only one project. One project may have multiple employees.
+-- Each project must have an employee. There cannot be a project with no employees.
+
 -- Employee - Project Relation
 -- Employee: Strong entity
 -- Project: Weak entity
