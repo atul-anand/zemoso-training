@@ -3,7 +3,7 @@ CREATE TABLE Employee (
 	first_name varchar(30) NOT NULL, 
 	last_name varchar(30) NOT NULL, 
 	birth_date datetime DEFAULT NULL,
-	sex char(1) NOT NULL,
+	sex ENUM('M','F') DEFAULT 'M' NOT NULL,
 	job_profile varchar(10) NOT NULL,
 	contact_no bigint(10) NOT NULL,
 	created_tstamp datetime DEFAULT NULL, 

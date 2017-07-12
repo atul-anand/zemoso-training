@@ -1,6 +1,13 @@
 -- Employee Projects Database schema
--- Version 1.0
 -- Author: Atul Anand
+
+-- Employee - Project Relation
+-- Employee: Strong entity
+-- Project: Weak entity
+
+-- Employee - Supervisor Relation
+-- Employee: Strong entity
+-- Supervisor: Strong entity
 
 DROP SCHEMA IF EXISTS EmpProj;
 CREATE SCHEMA EmpProj;
@@ -11,12 +18,6 @@ use EmpProj;
 -- 
 
 source ./employee.sql;
-
--- 
--- Table Structure for table 'Supervisor'
--- 
-
--- source ./supervisor.sql;
 
 -- 
 -- Table Structure for table 'Project'

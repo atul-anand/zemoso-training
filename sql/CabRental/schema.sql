@@ -1,6 +1,13 @@
 -- Cab Rental Database schema
--- Version 1.0
 -- Author: Atul Anand
+
+-- Cab - Driver Relation
+-- Cab: Weak entity
+-- Driver: Strong entity
+
+-- Cab - Customer Relation
+-- Cab: Strong entity
+-- Customer: Strong entity
 
 DROP SCHEMA IF EXISTS CabRental;
 CREATE SCHEMA CabRental;
@@ -11,21 +18,18 @@ use CabRental;
 -- 
 
 source ./cab.sql;
--- \! echo "Cab Table Created.\n"
 
 -- 
 -- Table Structure for table 'Driver'
 -- 
 
 source ./driver.sql;
--- \! echo "Driver Table Created.\n"
 
 -- 
 -- Table Structure for table 'Customer'
 -- 
 
 source ./customer.sql;
--- \! echo "Customer Table Created.\n"
 
 
 -- 
@@ -33,7 +37,6 @@ source ./customer.sql;
 -- 
 
 source ./cab_driver.sql;
--- \! echo "Cab-Driver Relation Created.\n"
 
 
 -- 
@@ -41,4 +44,3 @@ source ./cab_driver.sql;
 -- 
 
 source ./cab_customer.sql;
--- \! echo "Cab-Customer Relation Created.\n"

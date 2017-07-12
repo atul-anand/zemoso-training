@@ -1,6 +1,13 @@
 -- Employee Projects Database schema
--- Version 1.0
 -- Author: Atul Anand
+
+-- Employee - Project Relation
+-- Employee: Strong entity
+-- Project: Weak entity
+
+-- Employee - Supervisor Relation
+-- Employee: Strong entity
+-- Supervisor: Strong entity
 
 DROP SCHEMA IF EXISTS EmpProj;
 CREATE SCHEMA EmpProj;
@@ -15,7 +22,7 @@ CREATE TABLE Employee (
 	first_name varchar(30) NOT NULL, 
 	last_name varchar(30) NOT NULL, 
 	birth_date datetime DEFAULT NULL,
-	sex char(1) NOT NULL,
+	sex ENUM('M','F') DEFAULT 'M' NOT NULL,
 	job_profile varchar(10) NOT NULL,
 	contact_no bigint(10) NOT NULL,
 	created_tstamp datetime DEFAULT NULL, 
@@ -26,12 +33,6 @@ CREATE TABLE Employee (
 	last_updated_by_id bigint(20) NOT NULL, 
 	PRIMARY KEY (emp_id) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- 
--- Table Structure for table 'Supervisor'
--- 
-
--- source ./supervisor.sql;
 
 -- 
 -- Table Structure for table 'Project'
@@ -56,7 +57,6 @@ CREATE TABLE Project(
 -- 
 
 CREATE TABLE Emp_Proj (
-	-- emp_proj_id bigint(10) NOT NULL AUTO_INCREMENT,
 	emp_id bigint(10) NOT NULL,
 	proj_id bigint(10) NOT NULL,
 	created_tstamp datetime DEFAULT NULL, 
@@ -65,12 +65,10 @@ CREATE TABLE Emp_Proj (
 	deleted_by_id bigint(20) DEFAULT NULL, 
 	last_updated_tstamp datetime DEFAULT NULL, 
 	last_updated_by_id bigint(20) NOT NULL,
-	-- PRIMARY KEY (emp_proj_id),
+	CONSTRAINT UC_Emp UNIQUE (emp_id),
 	CONSTRAINT UC_Emp_Proj UNIQUE (emp_id,proj_id),
-	-- KEY idx_fk_emp_id (emp_id),
-	-- KEY idx_fk_proj_id (proj_id),
-	CONSTRAINT FK_Emp_Id FOREIGN KEY (emp_id) REFERENCES Employee (emp_id) ON DELETE RESTRICT ON UPDATE CASCADE,
-	CONSTRAINT FK_Proj_ID FOREIGN KEY (proj_id) REFERENCES Project (proj_id) ON DELETE RESTRICT ON UPDATE CASCADE
+	CONSTRAINT FK_Emp_Id FOREIGN KEY (emp_id) REFERENCES Employee (emp_id) ON DELETE RESTRICT,
+	CONSTRAINT FK_Proj_ID FOREIGN KEY (proj_id) REFERENCES Project (proj_id) ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- 
@@ -78,7 +76,6 @@ CREATE TABLE Emp_Proj (
 -- 
 
 CREATE TABLE Emp_Sup(
-	-- emp_sup_id bigint(10) NOT NULL AUTO_INCREMENT,
 	emp_id bigint(10) NOT NULL,
 	sup_id bigint(10) NOT NULL,
 	created_tstamp datetime DEFAULT NULL, 
@@ -87,11 +84,9 @@ CREATE TABLE Emp_Sup(
 	deleted_by_id bigint(20) DEFAULT NULL, 
 	last_updated_tstamp datetime DEFAULT NULL, 
 	last_updated_by_id bigint(20) NOT NULL,
-	-- PRIMARY KEY (emp_sup_id),
+	CONSTRAINT UC_Emp_ID UNIQUE (emp_id),
 	CONSTRAINT UC_Emp_Sup UNIQUE (emp_id,sup_id),
-	-- KEY idx_fk_emp_id (emp_id),
-	-- KEY idx_fk_sup_id (sup_id),
-	CONSTRAINT FK_Emp_Id FOREIGN KEY (emp_id) REFERENCES Employee (emp_id) ON DELETE RESTRICT ON UPDATE CASCADE,
-	CONSTRAINT FK_Sup_Id FOREIGN KEY (sup_id) REFERENCES Employee (emp_id) ON DELETE RESTRICT ON UPDATE CASCADE
-	-- CONSTRAINT FK_Sup_ID FOREIGN KEY (sup_id) REFERENCES Supervisor (sup_id) ON DELETE RESTRICT ON UPDATE CASCADE
+	CONSTRAINT CHK_Emp_Not_Sup CHECK (emp_id!=sup_id),
+	CONSTRAINT FK_Emps_Id FOREIGN KEY (emp_id) REFERENCES Employee (emp_id) ON DELETE RESTRICT,
+	CONSTRAINT FK_Sup_Id FOREIGN KEY (sup_id) REFERENCES Employee (emp_id) ON DELETE RESTRICT
 ) Engine=InnoDB DEFAULT CHARSET=utf8;
