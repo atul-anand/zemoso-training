@@ -7,9 +7,9 @@ CREATE TABLE Emp_Sup(
 	deleted_by_id bigint(20) DEFAULT NULL, 
 	last_updated_tstamp datetime DEFAULT NULL, 
 	last_updated_by_id bigint(20) NOT NULL,
-	CONSTRAINT UC_Emp_ID UNIQUE (emp_id),
-	CONSTRAINT UC_Emp_Sup UNIQUE (emp_id,sup_id),
-	CONSTRAINT CHK_Emp_Not_Sup CHECK (emp_id!=sup_id),
-	CONSTRAINT FK_Emps_Id FOREIGN KEY (emp_id) REFERENCES Employee (emp_id) ON DELETE RESTRICT,
-	CONSTRAINT FK_Sup_Id FOREIGN KEY (sup_id) REFERENCES Employee (emp_id) ON DELETE RESTRICT
+	CONSTRAINT UC_Emp_Sup_Emp_ID UNIQUE (emp_id),
+	CONSTRAINT UC_Emp_Sup_Emp_Sup UNIQUE (emp_id,sup_id),
+	CONSTRAINT CHK_Emp_Sup_Not_Same CHECK (emp_id!=sup_id),
+	CONSTRAINT FK_Emp_Sup_Emp_Id FOREIGN KEY (emp_id) REFERENCES Employee (emp_id) ON DELETE RESTRICT,
+	CONSTRAINT FK_Emp_Sup_Sup_Id FOREIGN KEY (sup_id) REFERENCES Employee (emp_id) ON DELETE RESTRICT
 ) Engine=InnoDB DEFAULT CHARSET=utf8;

@@ -87,9 +87,9 @@ CREATE TABLE Cab_Driver (
 	deleted_by_id bigint(20) DEFAULT NULL, 
 	last_updated_tstamp datetime DEFAULT NULL, 
 	last_updated_by_id bigint(20) NOT NULL,
-	CONSTRAINT UC_Cab_Driver UNIQUE(cab_id,driver_id,start_date),
-	CONSTRAINT FK_Cab_ID FOREIGN KEY (cab_id) REFERENCES Cab (cab_id) ON DELETE RESTRICT,
-	CONSTRAINT FK_Driver_ID FOREIGN KEY (driver_id) REFERENCES Driver (driver_id) ON DELETE RESTRICT
+	CONSTRAINT UC_Cab_Driver_Cab_Driver UNIQUE(cab_id,driver_id,start_date),
+	CONSTRAINT FK_Cab_Driver_Cab_ID FOREIGN KEY (cab_id) REFERENCES Cab (cab_id) ON DELETE RESTRICT,
+	CONSTRAINT FK_Cab_Driver_Driver_ID FOREIGN KEY (driver_id) REFERENCES Driver (driver_id) ON DELETE RESTRICT
 ) Engine=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -108,7 +108,7 @@ CREATE TABLE Cab_Customer (
 	deleted_by_id bigint(20) DEFAULT NULL, 
 	last_updated_tstamp datetime DEFAULT NULL, 
 	last_updated_by_id bigint(20) NOT NULL,
-	CONSTRAINT UC_Cab_Customer UNIQUE(cab_id,cust_id,trip_start),
-	CONSTRAINT FK_Cabs_ID FOREIGN KEY (cab_id) REFERENCES Cab (cab_id) ON DELETE RESTRICT ON UPDATE CASCADE,
-	CONSTRAINT FK_Cust_ID FOREIGN KEY (cust_id) REFERENCES Customer (cust_id) ON DELETE RESTRICT ON UPDATE CASCADE
+	CONSTRAINT UC_Cab_Customer_Trip UNIQUE(cab_id,cust_id,trip_start),
+	CONSTRAINT FK_Cab_Customer_Cab_ID FOREIGN KEY (cab_id) REFERENCES Cab (cab_id) ON DELETE RESTRICT,
+	CONSTRAINT FK_Cab_Custpmer_Cust_ID FOREIGN KEY (cust_id) REFERENCES Customer (cust_id) ON DELETE RESTRICT
 ) Engine=InnoDB DEFAULT CHARSET=utf8;
