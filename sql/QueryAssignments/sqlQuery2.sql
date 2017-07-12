@@ -6,7 +6,7 @@ select count(*) as documentaries
             on fc.film_id = f.film_id
         join category cat
             on cat.category_id = fc.category_id
-	where cat.name = "Documentary"
+    where cat.name = "Documentary"
     and FIND_IN_SET('Deleted Scenes',f.special_features);
     
 \! echo "Number of Sci-Fi movies rented via Jon Stephens."
@@ -24,7 +24,7 @@ select count(distinct f.title) as titles
             on fc.film_id = f.film_id
         join category cat
             on cat.category_id = fc.category_id
-	where cat.name = "Sci-Fi"
+    where cat.name = "Sci-Fi"
     and sf.first_name = "Jon"
     and sf.last_name = "Stephens";
 
@@ -54,7 +54,7 @@ select cat.name as category, count(cat.category_id) as times_rented
             on fc.film_id = inv.film_id
         join category cat
             on cat.category_id = fc.category_id
-	where cust.first_name = "PATRICIA"
+    where cust.first_name = "PATRICIA"
     and cust.last_name = "JOHNSON"
     group by cat.category_id
     order by times_rented desc
@@ -73,6 +73,6 @@ select count(*) as movies
             on fc.film_id = f.film_id
         join category cat
             on cat.category_id = fc.category_id
-	where cust.first_name = "SUSAN"
+    where cust.first_name = "SUSAN"
     and cust.last_name = "WILSON"
     and f.rating = "R";
