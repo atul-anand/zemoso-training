@@ -7,6 +7,9 @@
 -- Each unreserved ticket must correspond to a customer.
 -- A customer cannot be in two trains at the same time.
 
+-- Train: Strong entity
+-- Customer: Strong entity
+-- Ticket: Weak entity
 
 DROP SCHEMA IF EXISTS IRCTC;
 CREATE SCHEMA IRCTC;
