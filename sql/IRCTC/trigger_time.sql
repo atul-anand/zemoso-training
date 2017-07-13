@@ -13,7 +13,6 @@ CREATE PROCEDURE IRCTC.ensureTimings(btime datetime,cust_id bigint(10),train_id 
 			SELECT 'Customer travelling on a different train.';
 			SET book = 0;
 		END IF;
-		SET book = 1;
 	END$$
 
 DELIMITER ;;
