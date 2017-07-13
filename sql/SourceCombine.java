@@ -43,7 +43,8 @@ public class SourceCombine{
 		}
 	}
 	public static void main(String[] args){
-		combineSchemas("EmpProj","EmpProj","schema");
-		combineSchemas("CabRental","CabRental","schema");
+		// combineSchemas("EmpProj","EmpProj","schema");
+		// combineSchemas("CabRental","CabRental","schema");
+		combineSchemas("IRCTC","IRCTC","schema");
 	}
 }
