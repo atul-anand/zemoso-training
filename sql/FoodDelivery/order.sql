@@ -1,0 +1,20 @@
+CREATE TABLE Orders (
+	order_id bigint(10) NOT NULL AUTO_INCREMENT,
+	cust_id bigint(10) NOT NULL,
+	rest_id bigint(10) NOT NULL,
+	del_id bigint(10) NOT NULL,
+	no_of_items bigint(10) NOT NULL,
+	price bigint(10) NOT NULL,
+	order_time datetime DEFAULT NULL,
+	created_tstamp datetime DEFAULT NULL, 
+	created_by_id bigint(20) NOT NULL, 
+	deleted_tstamp datetime DEFAULT NULL, 
+	deleted_by_id bigint(20) DEFAULT NULL, 
+	last_updated_tstamp datetime DEFAULT NULL, 
+	last_updated_by_id bigint(20) NOT NULL,
+	PRIMARY KEY (order_id),
+	CONSTRAINT UC_Order_Time UNIQUE (cust_id,rest_id,order_time),
+	CONSTRAINT FK_Order_Cust_Id FOREIGN KEY (cust_id) REFERENCES Customer (cust_id) ON DELETE RESTRICT,
+	CONSTRAINT FK_Order_Rest_Id FOREIGN KEY (rest_id) REFERENCES Restaurant (rest_id) ON DELETE RESTRICT,
+	CONSTRAINT FK_Order_Del_Id FOREIGN KEY (del_id) REFERENCES Delivery_Boy (del_id) ON DELETE RESTRICT
+) Engine=InnoDB DEFAULT CHARSET=utf8;
