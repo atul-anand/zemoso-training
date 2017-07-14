@@ -46,6 +46,7 @@ public class SourceCombine{
 		// combineSchemas("EmpProj","EmpProj","schema");
 		// combineSchemas("CabRental","CabRental","schema");
 		// combineSchemas("IRCTC","IRCTC","schema");
-		combineSchemas("FoodDelivery","FoodDelivery","schema");
+		// combineSchemas("FoodDelivery","FoodDelivery","schema");
+		combineSchemas("HotelBooking","HotelBooking","schema");
 	}
 }
