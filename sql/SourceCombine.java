@@ -49,6 +49,7 @@ public class SourceCombine{
 		// combineSchemas("FoodDelivery","FoodDelivery","schema");
 		// combineSchemas("HotelBooking","HotelBooking","schema");
 		// combineSchemas("IMDB","IMDB","schema");
-		combineSchemas("ECommerce","ECommerce","schema");
+		// combineSchemas("ECommerce","ECommerce","schema");
+		combineSchemas("Paytm","Paytm","schema");
 	}
 }
