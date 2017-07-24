@@ -26,7 +26,7 @@ select f.title,count(f.film_id) as times_rented
     limit 3;
 
 \! echo "Indian customers who rented Sports movies";
-select cust.* 
+select distinct cust.* 
     from country cnt
         join city c
             on c.country_id = cnt.country_id
@@ -46,7 +46,7 @@ select cust.*
     and cat.name = "Sports";
 
 \! echo "Canadian customers who rented movies of Nick Wahlberg";
-select cust.* 
+select distinct cust.* 
     from country cnt
         join city c
             on c.country_id = cnt.country_id
