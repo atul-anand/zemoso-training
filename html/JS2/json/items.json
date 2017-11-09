@@ -1,0 +1,44 @@
+var items = [
+    {
+        "id": 0,
+        "name": "Burger",
+        "price": 45,
+        "serving": 1
+    },
+    {
+        "id": 1,
+        "name": "Pizza",
+        "price": 95,
+        "serving": 1
+    },
+    {
+        "id": 2,
+        "name": "Apple",
+        "price": 20,
+        "serving": 1
+    },
+    {
+        "id": 3,
+        "name": "Eggs",
+        "price": 20,
+        "serving": 1
+    },
+    {
+        "id": 4,
+        "name": "Noodles",
+        "price": 40,
+        "serving": 1
+    },
+    {
+        "id": 5,
+        "name": "Rice",
+        "price": 40,
+        "serving": 1
+    },
+    {
+        "id": 6,
+        "name": "Milk",
+        "price": 30,
+        "serving": 1
+    }   
+]

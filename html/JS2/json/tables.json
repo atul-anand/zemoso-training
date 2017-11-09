@@ -1,0 +1,14 @@
+var tables = [
+/*    {
+        "id": 1,
+        "name": "Table1",
+        "order": [
+            {
+                "id": 0,
+                "name": "Burger",
+                "price": 45
+            }
+        ],
+        "bill": 45
+    }*/
+]

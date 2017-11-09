@@ -1,0 +1,164 @@
+* {
+    font-family: sans-serif;
+}
+.container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    z-index: 0;
+    
+}
+.menu ul {
+/*    margin-top: 27%;*/
+    list-style-type: none;
+    margin-left: -9%;
+    margin-right: 2.5%;
+    padding-top: 3.2%;
+    padding-right: 1%;
+}
+.menu li {
+    height: 40%;
+    padding-left: 9%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-bottom: 5%;
+    background-color :#03A9F4;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.menu li:hover {
+    cursor: move;
+    background-color: #0099cc;
+}
+.menu {
+   top: 0;
+    max-height: 75%;
+ 
+    width: 24.5%;
+    float: left;
+/*    overflow: scroll;*/
+    height: 100%;
+}
+.menu-heading {
+    padding-top: 20px;
+    height: 50px;
+    position: fixed;
+    width: 24.5%;
+    background-color:#0288D1;
+    color: white;
+    
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+#menu-search {
+    margin-top: 27%;
+    width: 90%;
+    height: 33px;
+    margin-left: 5%;
+}
+
+.main ul {
+    
+/*    margin-top: 9%;*/
+    list-style-type: none;
+    margin-left: 2.5%;
+    padding-top: 1.2%;
+    padding-left: 2%;
+}
+
+.main-heading {
+    top: 0;
+    padding-top: 20px;
+    height: 50px;
+    position: fixed;
+    width: 74.5%;
+    background-color:#0288D1;
+    color: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+/*#33b5e5*/
+.main li {
+    width: 92%;
+    height: 40%;
+    padding-left: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-bottom: 2%;
+    background-color :#03A9F4;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.main li:hover {
+    cursor: move;
+    background-color: #0099cc;
+}
+.main {
+    top: 0;
+    max-height: 75%;
+    width: 73.5%;
+     float: right;
+    padding-right: 1%;
+/*    overflow: scroll;*/
+    height: 100%;
+}
+
+#main-search {
+    margin-top: 9%;
+    width: 92%;
+    height: 33px;
+    margin-left: 5%;
+}
+
+.divider {
+    margin-top: 70px;
+    height: 90%;
+    width: 1%;
+    background-color: #536DFA;
+    /* border: 20px solid; */
+    float: left;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    
+}
+
+/*
+.item-list {
+    height: 40%;
+    padding-left: 10%;
+}
+*/
+
+.heading {
+    
+/*    height: 200px;*/
+/*    position: fixed;*/
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.inline-text {
+    display: inline-block;
+}
+
+
+
+#dialog {
+    z-index: 2;
+    position: absolute;
+    margin-left: 25%;
+    margin-right: 25%;
+    height: 80%;
+    width: 80%;
+/*    background-color: aquamarine;*/
+    display: none;
+}
+
+.card-overlay {
+    background: green;
+    position: relative;
+    display: inline-block;
+    opacity: 0.1;
+    height: 100%;
+    width: 100%;
+}
+

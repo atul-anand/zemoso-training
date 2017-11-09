@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta name="description" content="Atul's Portfolio">
+		<meta name="author" content="Atul Anand">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="styles/grid.css" rel="stylesheet" type="text/css">
+        <link href="styles/modal.css" rel="stylesheet" type="text/css">
+        <link href="styles/scroll.css" rel="stylesheet" type="text/css">
+        <link href="styles/items.css" rel="stylesheet" type="text/css">
+        <link href="styles/search.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>Atul Anand</title>
+	</head>
+    <body>
+        <div class="container">
+            
+            <div class="table-detail demo" id="dialog">
+                
+	
+<!--
+                <div class="text-center">
+                    <button type="button" id="open-modal" class="btn btn-demo" data-toggle="modal" data-target="#myModal">
+                        Open Dialog
+                    </button>s
+
+                </div>
+-->
+
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog modal-sm" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel">Order Details</h4>
+                                <h4 class="modal-title-right" id="table-info"></h4>
+                            </div>
+
+                            <div class="modal-body">
+                                <table id="dialog-tbl" width="400" >
+                                    <thead id=dialog-table-head>
+                                        <tr id="dialog-heading">
+                                            <th class="dialog-heading-item">S.No</th>
+                                            <th class="dialog-heading-item">Item</th>
+                                            <th class="dialog-heading-item">Price</th>
+                                            <th class="dialog-heading-item"></th>
+                                            <th class="dialog-heading-item"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="dialog-table">
+                                    
+                                    </tbody>
+<!--
+-->
+                                    
+                                </table>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" id="disagree-modal" class="btn-dialog" data-dismiss="modal">Generate Bill</button>
+<!--                                <button type="button" id="agree-modal" class="btn btn-dialog">Agree</button>-->
+                            </div>
+                        </div><!-- modal-content -->
+                    </div><!-- modal-dialog -->
+                </div><!-- modal -->
+
+	
+
+            </div>
+        
+            
+            <div class="menu" id="tables">
+                <div class="heading menu-heading" id="table-label">Tables</div>
+                
+                <input class="search" id="menu-search" type="search" placeholder="Search table" autocomplete="on">
+
+            </div>
+            
+            <div class="divider" id="divider"></div>
+            <div class="main" id="items">
+                <div class="heading main-heading" id="items-label">Menu</div>
+                <input class="search" id="main-search" type="search" placeholder="Search menu... by course, by food" autocomplete="on">
+            </div>
+            
+        </div>
+    </body>
+    <script type="application/javascript" src="json/items.json"></script>
+    <script type="application/javascript" src="json/tables.json"></script>
+    <script type="application/javascript" src="scripts/default.js"></script>
+    
+    <script type="application/javascript" src="scripts/search.js"></script>
+</html>

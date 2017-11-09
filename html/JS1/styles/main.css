@@ -1,38 +1,16 @@
 * {
+    box-sizing: border-box;
 	font-family: Helvetica;
 }
-.navBar {
-	margin: auto;
-	height: 5%;
-	width: 35%;
-	margin-top: -1.6%;
-	vertical-align: center;
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+.header {
+    background-color: #9933cc;
+    color: #ffffff;
+    padding: 15px;
 }
 
-.navBar ul {
-	list-style-type: none;
-}
-
-.navBarElem {
-	display: inline-block;
-	height: 100%;
-	width: 20%;
-	margin: 1%;
-	padding: 1%;
-	background-color: gray;
-	border-radius: 5%;
-	font-size: 1em;
-	font-style: bold;
-	color: white;
-	text-align: center;
-}
-
-.navButtons {
-	background-color: gray;
-	border-color: gray;
-	border: 0;
-	color: white;
-}
 
 #home {
 	display: block;
@@ -55,6 +33,9 @@
 #gallery {
 	display: none;
 }
+
+
+
 
 .container {
 	width: 40%;
@@ -79,9 +60,16 @@
 
 .name {
 	margin-top: 10%;
-	font-size: 3em;
+	font-size: 2.5em;
 	text-align: center;
 }
+
+.description {
+	margin: auto;
+	text-align: center;
+	font-size: 0.9em;
+}
+
 
 hr {
 	margin-top: 5%;
@@ -95,31 +83,21 @@ p {
 	clear: both;
 }
 
-.description {
-	margin: auto;
-	text-align: center;
-	font-size: 0.9em;
-}
 
 .thanku {
 	margin-top: 5%;
 	font-size: 1.5em;
 }
 
-
-.grid {
-	width: 200%;
-	margin-left: -58%;
+.dialog-name {
+    margin-top: 5%;
+    margin-left: 11%;
+    font-size: 1.5em;
+    text-align: center;
 }
 
-.grid li {
-    display: block;
-    display: inline;
-    width: 30%;
-    margin: auto;
+.dialog-button {
+    
 }
 
-.grid img {
-	max-width:33%;
-	max-height:100%;
-}
+

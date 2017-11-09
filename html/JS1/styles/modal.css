@@ -1,0 +1,88 @@
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Sit on top */
+    margin-left: 22%;
+    margin-right: 29%;
+    margin-top: 10%;
+/*    display: none;*/
+/*
+    width: 42%;
+    height: 48%;
+*/
+    left: 0;
+    top: 0;
+/*    margin: auto;*/
+    width: 54%; /* Full width */
+    height: 75%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+/*    margin: 15% auto;  15% from the top and centered */
+/*    padding: 20px;*/
+    border: 1px solid #888;
+    
+    margin-left: 29%;
+    margin-right: 29%;
+    margin-top: 10%;
+/*    display: none;*/
+    width: 42%;
+    height: 55%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#gallery-admin-dialog {
+    position: fixed;
+    background-color: #fefefe;
+    border: 1px solid #888;
+/*    border-radius: 2%;*/
+    elevation: "above higher";
+/*    border-color: aquamarine;*/
+    margin-left: 6%;
+    
+    margin-top: 4%;
+    
+    z-index: 5;
+/*    display: none;*/
+    width: 42%;
+    height: 55%;
+}
+
+#gallery-admin-edit {
+    float: right;
+    text-decoration-color: black;
+}
+
+#gallery-admin-close {
+    float: right;
+    height: 9%;
+    width: 6%;
+    text-align: center;
+    font-size: larger;
+    
+    margin: 5%;
+    background-color: gray;
+	border-color: gray;
+	border: 0;
+	color: white;
+}
