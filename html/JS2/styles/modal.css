@@ -73,6 +73,7 @@
 
 /* DIALOG BODY */
 .modal-body {
+    width: 600px;
     height: 350px;
     padding: 20px 24px;
 }
@@ -92,6 +93,36 @@
 .modal-body p:last-child,
 .modal-body .lead:last-child {
     margin-bottom: 0;
+}
+
+.modal-table-body {
+    max-height: 35%;
+}
+
+.incrementor {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #CCC;
+    color: #555;
+    box-sizing: border-box;
+    font-family: 'Arvo';
+    font-size: 18px;
+/*    height: 50px;*/
+    left: 35%;
+    margin: 0px 9px 0px -89px;
+    padding: 10px 10px;
+    position: relative;
+/*    top: 50%;*/
+    /*      width: 200px;*/
+
+    &:focus {
+    outline: none;    
+    }
+    width: 158px;
+    height: 15px;
+}
+.incrementor-heading {
+    height: 0px;
 }
 
 /* DIALOG FOOTER */

@@ -36,7 +36,7 @@
                             </div>
 
                             <div class="modal-body">
-                                <table id="dialog-tbl" width="400" >
+                                <table id="dialog-tbl" width="100%" >
                                     <thead id=dialog-table-head>
                                         <tr id="dialog-heading">
                                             <th class="dialog-heading-item">S.No</th>
@@ -56,8 +56,11 @@
                             </div>
 
                             <div class="modal-footer">
-                                <button type="button" id="disagree-modal" class="btn-dialog" data-dismiss="modal">Generate Bill</button>
-<!--                                <button type="button" id="agree-modal" class="btn btn-dialog">Agree</button>-->
+                                
+
+                                <button type="button" id="agree-modal" class="btn-dialog" data-dismiss="modal">Generate Bill</button>
+                                <button type="button" id="disagree-modal" class="btn-dialog" data-dismiss="modal">Wait for customer</button>
+
                             </div>
                         </div><!-- modal-content -->
                     </div><!-- modal-dialog -->
@@ -71,14 +74,14 @@
             <div class="menu" id="tables">
                 <div class="heading menu-heading" id="table-label">Tables</div>
                 
-                <input class="search" id="menu-search" type="search" placeholder="Search table" autocomplete="on">
+                <input class="search" id="menu-search" type="search" placeholder="Search table" autocomplete="on" required>
 
             </div>
             
             <div class="divider" id="divider"></div>
             <div class="main" id="items">
                 <div class="heading main-heading" id="items-label">Menu</div>
-                <input class="search" id="main-search" type="search" placeholder="Search menu... by course, by food" autocomplete="on">
+                <input class="search" id="main-search" type="search" placeholder="Search menu... by course, by food" autocomplete="on" required>
             </div>
             
         </div>

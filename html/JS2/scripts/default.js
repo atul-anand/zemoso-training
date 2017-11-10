@@ -36,46 +36,49 @@ function getTable(tableId){
     }
     return null;
 }
+function getTableByName(tableName){
+    console.log(tableName);
+//    tableId="Table"+tableId;
+    for(var item in tables){
+        var tbl = tables[item];
+        var name = tbl.name;
+        console.log(name);
+        if(tableName==name)
+            return tbl;
+    }
+    return null;
+}
 function getTotal(table){
 	var total = 0;
     console.log(table.order.length);
 	for(var x in table.order){
         var item = table.order[x];
-//        try {
-            console.log(item);
-        if(item==null)
-            continue;
-            console.log(item.price);
-            total+=item.price;  
-//        } catch     {
-            console.log("Null");    
-//    }
-        
+        total += item.price*item.serving;
 	}
     console.log(total);
 	return total;
 }
 
 
-function getBill(order){
-    var bill = 0;
-    for(var x in order){
-//        try{
-            var ord = order[x];
-            console.log(ord);
-        if(ord==null)
-            continue;
-            var price = ord.price;
-            console.log(price);
-            bill+=price;
-//        } catch {
-//            console.log("Null");
-//        }
-//        
-    }
-    console.log(bill);
-    return bill;
-}
+//function getBill(order){
+////    var bill = 0;
+////    for(var x in order){
+//////        try{
+////            var ord = order[x];
+////            console.log(ord);
+////        if(ord==null)
+////            continue;
+//            return order.price*order.serving;
+////            console.log(price);
+////            bill+=price;
+////        } catch {
+////            console.log("Null");
+////        }
+////        
+////    }
+////    console.log(bill);
+////    return price;
+//}
 
 
 function addItemToTable(table, item){
@@ -119,44 +122,12 @@ function addItemToTable(table, item){
     
 }
 
-
-
-
-
-//function allowDrop(ev) {
-//    ev.preventDefault();
-//}
-//
-//function drag(ev) {
-//    console.log(ev);
-//    ev.dataTransfer.setData("text", ev.target.id);
-//    console.log(ev.target.id);
-//    ev.stopPropagation();
-//}
-//
-//function drop(ev) {
-//    ev.preventDefault();
-//    var itemId = ev.dataTransfer.getData("text");
-////    console.log(itemId);
-//    var item = getItem(itemId);
-//    console.log(item);
-//    var tableId = ev.target.id;
-////    console.log(tableId);
-//    var table = getTable(tableId);
-//    console.log(table);
-//    addItemToTable(table,item);
-//    
-//    console.log(tables);
-////    updateTable(table);
-//    ev.stopPropagation();
-//}
-
 function addTable(n){
 	var table = {};
 	for(var i=0;i<n;i++){
 		table = {
-            "name": "Table" + (tables.length+1),
-			"id": tables.length+1,
+            "name": "Table" + (tables.length),
+			"id": tables.length,
 			"order" : [],
             "bill": 0
 		};
@@ -175,6 +146,7 @@ function addTables() {
         var tableId = table.id;
         var li = document.createElement("li");
         li.classList.add("item-list");
+        li.id = tableId;
         
         var div = document.createElement("div");
       /*  var overlay = document.createElement("div");
@@ -183,21 +155,22 @@ function addTables() {
         var h3 = document.createElement("h3");
         
         var h4 = document.createElement("h4");
-        
+        h4.id = tableId;
         h4.classList.add("inline-text");
         
         h3.innerHTML = table.name;
         h4.innerHTML = tableBody(table);
-        
-        addTableListener(div,tableId);
+        h3.classList.add("unselectable");
+        h4.classList.add("unselectable");
+//        addTableListener(div,tableId);
 //        addTableListener(h3,tableId);
 //        addTableListener(h4,tableId);
         addTableListener(li,tableId);
         
-        div.appendChild(h3);
-        div.appendChild(h4);
+        li.appendChild(h3);
+        li.appendChild(h4);
         
-        li.appendChild(div);
+//        li.appendChild(div);
         
         console.log(li);
         
@@ -222,26 +195,29 @@ function addItems(){
         
         var li = document.createElement("li");
         li.classList.add("item-list");
-        
-        var div = document.createElement("div");
+        li.id = itemId;
+//        var div = document.createElement("div");
         
         var h3 = document.createElement("h3");
         var h4 = document.createElement("h4");
         h3.innerHTML = item.name;
         h4.innerHTML = "Rs. " + item.price;
-        
+        h3.classList.add("unselectable");
+        h4.classList.add("unselectable");
         addItemListener(li,itemId);
-        addItemListener(div,itemId);
+//        addItemListener(div,itemId);
 //        addItemListener(h3,itemId);
 //        addItemListener(h4,itemId);
         
-        div.appendChild(h3);
-        div.appendChild(h4);
+//        div.appendChild(h3);
+//        div.appendChild(h4);
+        li.appendChild(h3);
+        li.appendChild(h4);
         console.log(items[i]);
         
         console.log(li.id);
         console.log(li);
-        li.appendChild(div);
+//        li.appendChild(div);
         
         
         
@@ -303,7 +279,7 @@ function showDetails(ev){
     
     if(table.order.length>0){
         tableGrp.appendChild(addHeadingToTable());    
-        console.log(tableBody);
+        console.log(tableGrp);
         tableGrp.style.display = "block";
         
         console.log(table);
@@ -342,9 +318,103 @@ function addTableListener(li,id){
     li.addEventListener('drop',function(event){drop(event);});
     li.addEventListener('dragover',function(event){allowDrop(event);});
 }
-document.getElementById("disagree-modal").onclick = function() {
-    console.log("Modal Disagree");
+
+function wipeTable(table){
+    var menu = document.getElementById("tables");
+    var lis = document.getElementsByTagName("li");
+    var li = null;
+    console.log(table);
+    for(var x in lis){
+        li = lis[x];
+        if(li.id==table.id){
+            break;
+        }
+    }
+    if(li!=null){
+        var id = li.id;
+        console.log(li.parentElement);
+        li.parentElement.removeChild(li);
+    }
+    
+    for(var x in tables){
+        var tbl = tables[x];
+        if(tbl==table){
+            tables.remove(table);
+            break;
+        }
+    }
+}
+
+function handleQuantityChange() {
+    
+//    console.log(table);
+    console.log(this);  
+    var modalBody = document.getElementsByClassName("modal-title-right")[0];
+    var table = getTableByName(modalBody.innerHTML);
+    console.log(modalBody);
+    var total = document.getElementById("total-bill");
+    input = this;
+    console.log(input.value);
+    var newServings = input.value;
+    console.log(newServings);
+    var itemId = input.id;
+    console.log(itemId);
+    console.log(table.order);
+    for(var x in table.order){
+        var id = table.order[x].id;
+        console.log(id);
+        if(id==itemId){
+            table.order[x].serving = Number(newServings);    
+            console.log(table.order[x]);
+        }
+    }
+    
+    
+    console.log(table);
+    var totalBill = getTotal(table);
+    table.bill = totalBill;
+    console.log(table);
+    
+    updateTableList(table);
+    console.log(totalBill);
+    total.innerHTML = totalBill;
+    
+}
+function updateTableList(table){
+    var tables = document.getElementById("tables");
+    var lis = tables.getElementsByClassName("item-list");
+    console.log(lis);
+//    var tableName = document.getElementById("table-info");
+//    var table = getTableByName(tableName);
+    console.log(table);
+    var h4s = tables.getElementsByTagName("h4");
+    for(var x in h4s){
+        var h4 = h4s[x];
+        var h4id = h4.id;
+        if(h4id==table.id){
+            console.log(h4);
+            h4.innerHTML=tableBody(table);
+            console.log(h4);
+        }
+        
+    }
+}
+document.getElementById("agree-modal").onclick = function() {
+    var modal = document.getElementById("myModal");
+    console.log("Generating Bill");
+    var tableName = document.getElementById("table-info");
+    var table = getTableByName(tableName.innerHTML);
+    console.log(tableName);
+    console.log(table);
     modal.style.display = "none";
+    wipeTable(table);
+    
+}
+
+document.getElementById("disagree-modal").onclick = function() {
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+    
 }
 
 
@@ -359,6 +429,28 @@ function tableBody(table){
     return str;
 }
 
+function addIncrementor(value,itemId,table){
+    var div = document.createElement("div");
+    var h5 = document.createElement("h5");
+    h5.innerHTML = "Number of servings";
+    h5.classList.add("incremnetor-heading");
+    var input = document.createElement("input");
+    input.type = "number";
+    input.id = itemId;
+    input.classList.add("incrementor");
+    input.value = value;
+    input.min = 1;
+    input.oninput = handleQuantityChange;
+//    input.onkeypress = handleQuantityChange(table,input);
+    div.appendChild(h5);
+    div.appendChild(input);
+    return div;
+}
+
+function addDeleteButton(){
+    var div = document.createElement("div");
+    return div;
+}
 function addTotalRow(table) {
     var tfoot = document.createElement("tfoot");
     var tr = document.createElement("tr");
@@ -379,8 +471,10 @@ function addTotalRow(table) {
     
     sno.innerHTML = "";
     item.innerHTML = "Total";
+    price.id = "total-bill";
     price.innerHTML = table.bill;
     quantity.innerHTML = "";
+    
     
     tr.appendChild(sno);
     tr.appendChild(item);
@@ -392,7 +486,8 @@ function addTotalRow(table) {
     
     return tfoot;
 }
-function addItemToBody(order,id) {
+function addItemToBody(order,id,tableId) {
+    var table = getTable(tableId);
     var tr = document.createElement("tr");
     tr.id = id;
     
@@ -413,7 +508,8 @@ function addItemToBody(order,id) {
     sno.innerHTML = id;
     item.innerHTML = order.name;
     price.innerHTML = order.price;
-    quantity.innerHTML = order.serving;
+    quantity.appendChild(addIncrementor(order.serving,id,table));
+    del.appendChild(addDeleteButton());
     
     tr.appendChild(sno);
     tr.appendChild(item);
@@ -427,6 +523,9 @@ function addItemToBody(order,id) {
 function addItemsToBody(table,body) {
     
     var tbody = document.createElement("tbody");
+    
+    tbody = addScrollBar(tbody);
+    tbody.classList.add("modal-table-body");
     var id = table.id;
     
     var orders = table.order;
@@ -434,8 +533,8 @@ function addItemsToBody(table,body) {
     
     for(var x=0;x<orders.length;x++){
         var order = orders[x];
-        var i = x+1;
-        var tr = addItemToBody(order,x+1);
+//        var i = x+1;
+        var tr = addItemToBody(order,order.id,id);
         console.log(tr);
         tbody.appendChild(tr);
     }
@@ -461,6 +560,7 @@ function addHeadingToTable(){
     item.innerHTML = "Item";
     price.innerHTML = "Price";
     quantity.innerHTML = "Servings";
+    del.innerHTML = "Delete?"
     
     sno.classList.add("dialog-heading-item");
     item.classList.add("dialog-heading-item");
@@ -493,11 +593,11 @@ function hideScrollBarIfLessElements(tag){
 
 function addScrollBar(tag){
     
-    var div = document.createElement("div");
+//    var div = document.createElement("div");
 //    div.classList.add("force-overflow");
     tag.classList.add("scrollbar");
     tag.id="style-5";
-    tag.appendChild(div);
+//    tag.appendChild(div);
 //    tag.appendChild(scroll);
     return tag;
 }

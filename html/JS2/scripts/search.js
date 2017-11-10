@@ -1,7 +1,6 @@
 var searchTableElement = document.getElementById("menu-search");
 var searchItemsElement = document.getElementById("main-search");
 function checkName(name,string){
-    
     if(name.indexOf(string)==-1)
         return true;
     return false;
@@ -61,5 +60,5 @@ function searchItems(){
 }
 
 
-searchTableElement.onkeyup = searchTable();
-searchItemsElement.onkeyup = searchItems();
+searchTableElement.oninput = searchTable();
+searchItemsElement.oninput = searchItems();
