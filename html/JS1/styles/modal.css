@@ -86,3 +86,20 @@
 	border: 0;
 	color: white;
 }
+.btn-no-bkgrnd {
+    color: thistle;
+    background-color: white;
+    border-color: white;
+    border-bottom: none;
+    border-right: none;
+    
+    box-shadow: none;
+    font-size: 14px;
+/*    float: right;*/
+/*    padding-right: 20px;*/
+/*    font-variant-caps: all-petite-caps;*/
+    
+}
+.btn-no-bkgrnd:hover {
+    color: palevioletred;
+}

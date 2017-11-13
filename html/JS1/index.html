@@ -37,7 +37,8 @@
                         <input class="gallery-form-entry" id="gallery-link" type="text" placeholder="Image Url" required><br>
                         <input class="gallery-form-entry" id="gallery-name" type="text" placeholder="Name" required><br>
                         <input class="gallery-form-entry" id="gallery-info" type="text" placeholder="Information" required><br>
-                        <input type="submit" value="Submit" placeholder="Update" id="upload-image" >
+<!--                        <input type="submit" value="Submit" placeholder="Update" id="upload-image" >-->
+                        <button class="btn-no-bkgrnd" id="upload-image" >Update Gallery</button>
                     </form>
                 </div>
 <!--            </div>-->
@@ -71,8 +72,8 @@
                     <input class="form-entry" id="form-name" type="text" placeholder="Name" required><br>
                     <input class="form-entry" id="form-email" type="email" placeholder="Email" required><br>
                     <input class="form-entry" id="form-message" type="text" placeholder="Message" required><br>
-                    <input class="form-submit" id="contact-submit" type="submit" value="Send Message" >
-<!--                    <button id="contact-submit" >Send message</button>-->
+<!--                    <input class="form-submit" id="contact-submit" type="submit" value="Send Message" >-->
+                    <button class="btn-no-bkgrnd" id="contact-submit" >Send message</button>
                 </form>
                 <hr>
                 <div class="description">
@@ -100,8 +101,10 @@
 		</div>
         
 	</body>
+        <script type="text/javascript" src="json/messages.json"></script> 
         <script type="text/javascript" src="json/images.json"></script>        
-        <script type="text/javascript" src="scripts/upload.js"></script>
+        
         <script type="text/javascript" src="scripts/images.js"></script>
 		<script type="text/javascript" src="scripts/toggle.js"></script>
+            <script type="text/javascript" src="scripts/upload.js"></script>
 </html>

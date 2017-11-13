@@ -332,8 +332,10 @@ function wipeTable(table){
     }
     if(li!=null){
         var id = li.id;
-        console.log(li.parentElement);
-        li.parentElement.removeChild(li);
+        var h4 = li.getElementsByTagName("h4")[0];
+        h4.innerHTML = "Rs. 0 | Items: 0";
+//        console.log(li.parentElement);
+//        li.parentElement.removeChild(li);
     }
     
     for(var x in tables){
@@ -399,21 +401,32 @@ function updateTableList(table){
         
     }
 }
+
+function getAlertMessage(table){
+    var name = table.name;
+    var bill = table.bill;
+    var items = getCount(table.order);
+    var msg = items + " items sold on " + name + " with a bill of " + bill + " and is ready for service again.";
+    return msg;
+}
 document.getElementById("agree-modal").onclick = function() {
-    var modal = document.getElementById("myModal");
+    var modal = document.getElementById("dialog");
     console.log("Generating Bill");
     var tableName = document.getElementById("table-info");
     var table = getTableByName(tableName.innerHTML);
     console.log(tableName);
     console.log(table);
     modal.style.display = "none";
+    alert(getAlertMessage(table));
     wipeTable(table);
+    
     
 }
 
 document.getElementById("disagree-modal").onclick = function() {
-    var modal = document.getElementById("myModal");
+    var modal = document.getElementById("dialog");
     modal.style.display = "none";
+    
     
 }
 

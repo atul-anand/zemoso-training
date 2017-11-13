@@ -1,5 +1,5 @@
-#contact-form {
-   
+#contact-submit {
+   padding-top: 3%;
 }
 
 .form-entry {
@@ -28,16 +28,19 @@ input {
 }
 
 #upload-image {
-    margin-left: 40%;
+    margin-left: 33%;
 /*    margin-top: 3%;*/
-    
+        font-weight: bold;
+
     height: 20%;
-    width: 20%;
+    width: 34%;
     padding: 2%;
     text-align: center;
-    font-size: 1em;
+/*    font-size: 1em;*/
+/*
     background-color: gray;
 	border-color: gray;
 	border: 0;
 	color: white;
+*/
 }

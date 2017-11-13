@@ -169,9 +169,10 @@ var addImage = function addImage() {
 //    document.getElementById("background-overlay").style.display = "block";
 }
 document.getElementById("gallery-admin-close").onclick = function closeAdmin() {
+    uploadImage();
     document.getElementById("myModal").style.display = "none";
 //    document.getElementById("background-overlay").style.display = "none";
-    uploadImage();
+    
 }
 function fillDetails(json){
     var form = document.getElementById("gallery-form");
